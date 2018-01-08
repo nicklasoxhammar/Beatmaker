@@ -23,8 +23,15 @@ public class MainActivity extends AppCompatActivity {
 
         int resourceId = getResources().getIdentifier(ourId, "raw", "com.example.nick.beatmaker");
 
-        MediaPlayer mplayer = MediaPlayer.create(this, resourceId);
+        final MediaPlayer mplayer = MediaPlayer.create(this, resourceId);
         mplayer.start();
+
+        mplayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
+            @Override
+            public void onCompletion(MediaPlayer mediaPlayer) {
+                mplayer.release();
+            }
+        });
 
     }
 }
