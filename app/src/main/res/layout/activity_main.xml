@@ -4,10 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryDark"
     tools:context="com.example.nick.beatmaker.MainActivity">
 
 
+    <SeekBar
+        android:id="@+id/seekBar"
+        android:layout_marginTop="25dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true" />
+
     <GridLayout
+        android:layout_marginTop="85dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -17,49 +28,71 @@
             android:id="@+id/hihat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_row="0"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:onClick="padClicked"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:background="@color/colorAccent"
+            android:onClick="playSoundHihat"
             android:text="Hihat" />
 
         <Button
             android:id="@+id/crash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
             android:layout_column="1"
-            android:layout_row="0"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:onClick="padClicked"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:background="@android:color/holo_green_light"
+            android:onClick="playSoundCrash"
             android:text="Crash" />
 
         <Button
             android:id="@+id/snare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
             android:layout_column="0"
-            android:layout_row="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:onClick="padClicked"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:background="@android:color/holo_purple"
+            android:onClick="playSoundSnare"
             android:text="Snare" />
 
         <Button
             android:id="@+id/kick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_columnWeight="1"
-            android:layout_rowWeight="1"
             android:layout_column="1"
-            android:layout_row="1"
+            android:layout_columnWeight="1"
             android:layout_gravity="fill"
-            android:onClick="padClicked"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:background="@android:color/holo_orange_light"
+            android:onClick="playSoundKick"
             android:text="kick" />
 
     </GridLayout>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="7dp"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/seekBar"
+        android:layout_centerHorizontal="true"
+        android:text="Start"
+        android:onClick="startMetronome"/>
 </RelativeLayout>
