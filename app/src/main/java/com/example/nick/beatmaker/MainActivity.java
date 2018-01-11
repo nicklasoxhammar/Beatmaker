@@ -2,24 +2,27 @@ package com.example.nick.beatmaker;
 
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.SeekBar;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
     private SoundPool sp;
-    private int metronome;
     private int hihat;
     private int crash;
     private int snare;
     private int kick;
 
-    boolean metronomeOn = false;
-    Handler handler;
+    Metronome metronome;
     Button metronomeButton;
+    boolean metronomeOn = false;
+
+    TextView bpmText;
+    SeekBar bpmSlider;
 
 
     @Override
@@ -34,7 +37,32 @@ public class MainActivity extends AppCompatActivity {
         crash = sp.load(getApplicationContext(),R.raw.crash,1);
         snare = sp.load(getApplicationContext(),R.raw.snare,1);
         kick = sp.load(getApplicationContext(),R.raw.kick,1);
-        metronome = sp.load(getApplicationContext(),R.raw.metronome,1);
+
+
+        bpmText = (TextView) findViewById(R.id.bpmText);
+        bpmSlider = (SeekBar) findViewById(R.id.bpmSlider);
+        bpmSlider.setMax(200);
+        bpmSlider.setProgress(60);
+
+        bpmSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+
+                updateBpm(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+
 
     }
 
@@ -54,37 +82,35 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void startMetronome(View v){
+
+
+    public void updateBpm(int progress){
+
+        bpmText.setText("BPM: " + String.valueOf(progress));
+
+    }
+
+    public void startMetronome(View view){
 
         if (!metronomeOn) {
 
-            metronomeButton.setText("Stop");
-
             metronomeOn = true;
+            metronomeButton.setText("Stop");
+            bpmSlider.setEnabled(false);
 
-            handler = new Handler();
-            Runnable run = new Runnable() {
-                @Override
-                public void run() {
-
-                    sp.play(metronome, 1.0f, 1.0f, 0, 0, 1.0f);
-
-                    handler.postDelayed(this, 1000);
-
-                }
-            };
-
-            handler.post(run);
+            metronome = new Metronome((double) bpmSlider.getProgress());
+            metronome.playPublic();
 
         }else{
 
-            metronomeButton.setText("Start");
-            handler.removeCallbacksAndMessages(null);
             metronomeOn = false;
+            metronomeButton.setText("Start");
+            bpmSlider.setEnabled(true);
 
+            metronome.stop();
         }
-
     }
+
 
 
    /* @Override
