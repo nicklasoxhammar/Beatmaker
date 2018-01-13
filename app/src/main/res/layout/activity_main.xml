@@ -4,21 +4,21 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimaryDark"
+    android:background="@color/pink"
     tools:context="com.example.nick.beatmaker.MainActivity">
 
 
     <SeekBar
         android:id="@+id/bpmSlider"
-        android:layout_marginTop="25dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"/>
 
     <GridLayout
-        android:layout_marginTop="85dp"
+        android:layout_below="@+id/metronomeButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         >
@@ -86,17 +86,20 @@
         android:id="@+id/bpmText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
+        android:layout_alignBaseline="@+id/metronomeButton"
+        android:layout_alignBottom="@+id/metronomeButton"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="7dp"
-        android:text="BPM: 60" />
+        android:text="BPM: 60"
+        android:textSize="18sp"
+        android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/metronomeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bpmSlider"
-        android:layout_centerHorizontal="true"
+        android:background="@color/colorPrimaryDark"
+        android:onClick="startMetronome"
         android:text="Start"
-        android:onClick="startMetronome"/>
+        android:textColor="@android:color/background_light" />
 </RelativeLayout>
