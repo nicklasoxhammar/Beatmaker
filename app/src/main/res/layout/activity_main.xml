@@ -4,24 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/pink"
-    tools:context="com.example.nick.beatmaker.MainActivity">
+    android:background="@android:color/background_dark"
+    tools:context="com.example.nick.beatmaker.activities.MainActivity">
 
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/toolbar"/>
 
     <SeekBar
         android:id="@+id/bpmSlider"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="10dp"
         android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"/>
+        android:layout_below="@+id/toolbar"
+        android:progressBackgroundTint="@color/pink" />
 
     <GridLayout
-        android:layout_below="@+id/metronomeButton"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        >
+        android:layout_below="@+id/metronomeButton">
 
 
         <Button
@@ -33,7 +37,7 @@
             android:layout_gravity="fill"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:background="@color/colorAccent"
+            android:background="@color/colorPrimary"
             android:onClick="playSoundHihat"
             android:soundEffectsEnabled="false"
             android:text="Hihat" />
@@ -90,6 +94,7 @@
         android:layout_alignBottom="@+id/metronomeButton"
         android:layout_centerHorizontal="true"
         android:text="BPM: 60"
+        android:textColor="@android:color/background_light"
         android:textSize="18sp"
         android:textStyle="bold|italic" />
 
@@ -98,7 +103,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/bpmSlider"
-        android:background="@color/colorPrimaryDark"
+        android:background="@color/colorAccent"
         android:onClick="startMetronome"
         android:text="Start"
         android:textColor="@android:color/background_light" />
