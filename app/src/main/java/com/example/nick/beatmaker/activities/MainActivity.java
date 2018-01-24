@@ -1,8 +1,11 @@
 package com.example.nick.beatmaker.activities;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.preference.CheckBoxPreference;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -12,6 +15,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
@@ -21,6 +25,8 @@ import android.widget.ToggleButton;
 
 import com.example.nick.beatmaker.Metronome;
 import com.example.nick.beatmaker.R;
+import com.example.nick.beatmaker.fragments.SettingsFragment;
+import com.example.nick.beatmaker.listeners.MySharedPreferences;
 
 import java.lang.reflect.Field;
 
@@ -41,8 +47,7 @@ public class MainActivity extends AppCompatActivity {
     TextView bpmText;
     SeekBar bpmSlider;
 
-    RelativeLayout metronomeContainer;
-    Switch metronomeSwitch;
+    static RelativeLayout metronomeContainer;
 
 
     @Override
@@ -56,7 +61,8 @@ public class MainActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         metronomeContainer = (RelativeLayout) this.findViewById(R.id.metronomeContainer);
-        metronomeSwitch = (Switch) this.findViewById(R.id.metronomeSwitch);
+
+        showOrHideMetronome();
 
 
         //File recordings = new File(Context.getFilesDir(), "recordings");
@@ -72,8 +78,8 @@ public class MainActivity extends AppCompatActivity {
 
         bpmText = (TextView) findViewById(R.id.bpmText);
         bpmSlider = (SeekBar) findViewById(R.id.bpmSlider);
-        bpmSlider.setMax(200);
-        bpmSlider.setProgress(60);
+        bpmSlider.setMax(160);
+        bpmSlider.setProgress(80);
 
         bpmSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -139,7 +145,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateBpm(int progress){
 
-        bpmText.setText("BPM: " + String.valueOf(progress));
+        bpmText.setText("BPM: " + String.valueOf(progress + 40));
 
     }
 
@@ -151,7 +157,7 @@ public class MainActivity extends AppCompatActivity {
             metronomeButton.setText("Stop");
             bpmSlider.setEnabled(false);
 
-            metronome = new Metronome((double) bpmSlider.getProgress());
+            metronome = new Metronome((double) bpmSlider.getProgress() + 40);
             metronome.playPublic();
 
         }else{
@@ -178,18 +184,30 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    public void showOrHideMetronome(){
+
+        Log.i("tag","reach?");
 
 
-    public void showMetronome(){
-
-        metronomeContainer.setVisibility(RelativeLayout.VISIBLE);
+        if(MySharedPreferences.getPrefMetronome(this) == true) {
+            metronomeContainer.setVisibility(RelativeLayout.VISIBLE);
+        }else{
+            metronomeContainer.setVisibility(RelativeLayout.GONE);
+        }
 
     }
 
-    public void hideMetronome(){
 
-        metronomeContainer.setVisibility(RelativeLayout.GONE);
-    }
+
+    /*public void showOrHideMetronome(View view){
+
+        if (metronomeSwitch.isChecked() == true) {
+            metronomeContainer.setVisibility(RelativeLayout.VISIBLE);
+        } else{
+            metronomeContainer.setVisibility(RelativeLayout.GONE);
+        }
+
+    }*/
 
 
 

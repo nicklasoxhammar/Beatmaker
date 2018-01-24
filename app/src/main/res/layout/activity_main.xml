@@ -35,7 +35,7 @@
             android:layout_alignBaseline="@+id/metronomeButton"
             android:layout_alignBottom="@+id/metronomeButton"
             android:layout_centerHorizontal="true"
-            android:text="BPM: 60"
+            android:text="BPM: 120"
             android:textColor="@android:color/background_light"
             android:textSize="18sp"
             android:textStyle="bold|italic" />
@@ -116,5 +116,6 @@
             android:text="kick" />
 
     </GridLayout>
+
 
 </RelativeLayout>
