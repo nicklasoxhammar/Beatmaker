@@ -8,13 +8,16 @@
         android:id="@+id/toolbar"
         layout="@layout/toolbar"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <Switch
+        android:id="@+id/metronomeSwitch"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="Show settings here." />
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/toolbar"
+        android:layout_margin="10dp"
+        android:text="Show Metronome "
+        android:gravity="left"/>
+
 
 
 </RelativeLayout>

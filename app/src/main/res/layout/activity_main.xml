@@ -9,23 +9,54 @@
 
     <include
         android:id="@+id/toolbar"
-        layout="@layout/toolbar"/>
+        layout="@layout/toolbar" />
 
-    <SeekBar
-        android:id="@+id/bpmSlider"
-        android:layout_width="wrap_content"
+    <RelativeLayout
+        android:id="@+id/metronomeContainer"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_below="@+id/toolbar"
-        android:progressBackgroundTint="@color/pink" />
+        android:visibility="gone"
+        android:layout_below="@id/toolbar">
+
+        <Button
+            android:id="@+id/metronomeButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bpmSlider"
+            android:background="@color/colorAccent"
+            android:onClick="startMetronome"
+            android:text="Start"
+            android:textColor="@android:color/background_light" />
+
+        <TextView
+            android:id="@+id/bpmText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBaseline="@+id/metronomeButton"
+            android:layout_alignBottom="@+id/metronomeButton"
+            android:layout_centerHorizontal="true"
+            android:text="BPM: 60"
+            android:textColor="@android:color/background_light"
+            android:textSize="18sp"
+            android:textStyle="bold|italic" />
+
+        <SeekBar
+            android:id="@+id/bpmSlider"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
+            android:progressBackgroundTint="@color/pink" />
+
+    </RelativeLayout>
 
     <GridLayout
+        android:id="@+id/padLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/metronomeButton">
+        android:layout_below="@+id/metronomeContainer">
 
 
         <Button
@@ -86,25 +117,4 @@
 
     </GridLayout>
 
-    <TextView
-        android:id="@+id/bpmText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignBaseline="@+id/metronomeButton"
-        android:layout_alignBottom="@+id/metronomeButton"
-        android:layout_centerHorizontal="true"
-        android:text="BPM: 60"
-        android:textColor="@android:color/background_light"
-        android:textSize="18sp"
-        android:textStyle="bold|italic" />
-
-    <Button
-        android:id="@+id/metronomeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/bpmSlider"
-        android:background="@color/colorAccent"
-        android:onClick="startMetronome"
-        android:text="Start"
-        android:textColor="@android:color/background_light" />
 </RelativeLayout>

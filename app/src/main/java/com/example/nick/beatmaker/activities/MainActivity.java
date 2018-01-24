@@ -12,8 +12,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.Button;
+import android.widget.CompoundButton;
+import android.widget.RelativeLayout;
 import android.widget.SeekBar;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import com.example.nick.beatmaker.Metronome;
 import com.example.nick.beatmaker.R;
@@ -37,6 +41,9 @@ public class MainActivity extends AppCompatActivity {
     TextView bpmText;
     SeekBar bpmSlider;
 
+    RelativeLayout metronomeContainer;
+    Switch metronomeSwitch;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,9 @@ public class MainActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+
+        metronomeContainer = (RelativeLayout) this.findViewById(R.id.metronomeContainer);
+        metronomeSwitch = (Switch) this.findViewById(R.id.metronomeSwitch);
 
 
         //File recordings = new File(Context.getFilesDir(), "recordings");
@@ -166,6 +176,19 @@ public class MainActivity extends AppCompatActivity {
         } catch (Exception e) {
             Log.d(TAG, e.getLocalizedMessage());
         }
+    }
+
+
+
+    public void showMetronome(){
+
+        metronomeContainer.setVisibility(RelativeLayout.VISIBLE);
+
+    }
+
+    public void hideMetronome(){
+
+        metronomeContainer.setVisibility(RelativeLayout.GONE);
     }
 
 
