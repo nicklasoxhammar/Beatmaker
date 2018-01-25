@@ -61,6 +61,7 @@
 
         <Button
             android:id="@+id/hihat"
+            android:tag="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -69,12 +70,13 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:background="@color/colorPrimary"
-            android:onClick="playSoundHihat"
+            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:text="Hihat" />
 
         <Button
             android:id="@+id/crash"
+            android:tag="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
@@ -83,12 +85,13 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:background="@android:color/holo_green_light"
-            android:onClick="playSoundCrash"
+            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:text="Crash" />
 
         <Button
             android:id="@+id/snare"
+            android:tag="3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -97,12 +100,13 @@
             android:layout_row="1"
             android:layout_rowWeight="1"
             android:background="@android:color/holo_purple"
-            android:onClick="playSoundSnare"
+            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:text="Snare" />
 
         <Button
             android:id="@+id/kick"
+            android:tag="4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
@@ -111,7 +115,7 @@
             android:layout_row="1"
             android:layout_rowWeight="1"
             android:background="@android:color/holo_orange_light"
-            android:onClick="playSoundKick"
+            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:text="kick" />
 

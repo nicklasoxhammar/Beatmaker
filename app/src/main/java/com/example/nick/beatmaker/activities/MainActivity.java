@@ -1,11 +1,6 @@
 package com.example.nick.beatmaker.activities;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.media.AudioManager;
-import android.media.SoundPool;
-import android.preference.CheckBoxPreference;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,30 +10,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.Button;
-import android.widget.CheckBox;
-import android.widget.CompoundButton;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.ToggleButton;
 
 import com.example.nick.beatmaker.Metronome;
 import com.example.nick.beatmaker.R;
-import com.example.nick.beatmaker.fragments.SettingsFragment;
+import com.example.nick.beatmaker.SoundPlayer;
 import com.example.nick.beatmaker.listeners.MySharedPreferences;
 
 import java.lang.reflect.Field;
+
+import static java.lang.String.valueOf;
 
 
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private SoundPool sp;
-    private int hihat;
-    private int crash;
-    private int snare;
-    private int kick;
 
     Metronome metronome;
     Button metronomeButton;
@@ -64,17 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
         showOrHideMetronome();
 
-
-        //File recordings = new File(Context.getFilesDir(), "recordings");
-
         metronomeButton = (Button) findViewById(R.id.metronomeButton);
-
-        sp = new SoundPool(50, AudioManager.STREAM_MUSIC,0);
-        hihat = sp.load(getApplicationContext(),R.raw.hihat,1);
-        crash = sp.load(getApplicationContext(),R.raw.crash,1);
-        snare = sp.load(getApplicationContext(),R.raw.snare,1);
-        kick = sp.load(getApplicationContext(),R.raw.kick,1);
-
 
         bpmText = (TextView) findViewById(R.id.bpmText);
         bpmSlider = (SeekBar) findViewById(R.id.bpmSlider);
@@ -125,27 +103,11 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    public void playSoundHihat (View v) {
-        sp.play(hihat,1.0f,1.0f,0,0,1.0f);
-    }
-    public void playSoundCrash (View v) {
-        sp.play(crash,1.0f,1.0f,0,0,1.0f);
-
-    }
-    public void playSoundSnare (View v) {
-        sp.play(snare,1.0f,1.0f,0,0,1.0f);
-
-    }
-    public void playSoundKick (View v) {
-        sp.play(kick,1.0f,1.0f,0,0, 1.0f);
-
-    }
-
 
 
     public void updateBpm(int progress){
 
-        bpmText.setText("BPM: " + String.valueOf(progress + 40));
+        bpmText.setText("BPM: " + valueOf(progress + 40));
 
     }
 
@@ -197,44 +159,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void playSound(View v){
 
+        SoundPlayer.playPadSound(Integer.parseInt(String.valueOf(v.getTag())));
 
-    /*public void showOrHideMetronome(View view){
-
-        if (metronomeSwitch.isChecked() == true) {
-            metronomeContainer.setVisibility(RelativeLayout.VISIBLE);
-        } else{
-            metronomeContainer.setVisibility(RelativeLayout.GONE);
-        }
-
-    }*/
-
-
-
-   /* @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
     }
 
-    public void padClicked(View view){
 
-        int id = view.getId();
-        String ourId = "";
 
-        ourId = view.getResources().getResourceEntryName(id);
-
-        int resourceId = getResources().getIdentifier(ourId, "raw", "com.example.nick.beatmaker");
-
-        final MediaPlayer mplayer = MediaPlayer.create(this, resourceId);
-        mplayer.start();
-
-        mplayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
-            @Override
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                mplayer.release();
-            }
-        });
-
-    }*/
 }
