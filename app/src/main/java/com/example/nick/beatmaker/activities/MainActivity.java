@@ -43,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        SoundPlayer soundPlayer = new SoundPlayer(getApplicationContext());
+
         makeActionOverflowMenuShown();
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
@@ -147,9 +149,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void showOrHideMetronome(){
-
-        Log.i("tag","reach?");
-
 
         if(MySharedPreferences.getPrefMetronome(this) == true) {
             metronomeContainer.setVisibility(RelativeLayout.VISIBLE);
