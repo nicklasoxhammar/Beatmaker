@@ -97,6 +97,11 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
                 return true;
 
+            /*case R.id.action_padKit:
+                Intent e = new Intent( this, PadKitsActivity.class);
+                startActivity(e);
+                return true;*/
+
             default:
                 // If we got here, the user's action was not recognized.
                 // Invoke the superclass to handle it.
