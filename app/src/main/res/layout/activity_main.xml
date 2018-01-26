@@ -53,15 +53,15 @@
     </RelativeLayout>
 
     <GridLayout
-        android:id="@+id/padLayout"
+        android:id="@+id/standardDrumKitLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/metronomeContainer">
+        android:layout_below="@+id/metronomeContainer"
+        android:visibility="gone">
 
 
         <Button
             android:id="@+id/hihat"
-            android:tag="1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -72,11 +72,11 @@
             android:background="@color/colorPrimary"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
+            android:tag="1"
             android:text="Hihat" />
 
         <Button
             android:id="@+id/crash"
-            android:tag="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
@@ -87,11 +87,11 @@
             android:background="@android:color/holo_green_light"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
+            android:tag="2"
             android:text="Crash" />
 
         <Button
             android:id="@+id/snare"
-            android:tag="3"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -102,11 +102,11 @@
             android:background="@android:color/holo_purple"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
+            android:tag="3"
             android:text="Snare" />
 
         <Button
             android:id="@+id/kick"
-            android:tag="4"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
@@ -117,6 +117,76 @@
             android:background="@android:color/holo_orange_light"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
+            android:tag="4"
+            android:text="kick" />
+
+    </GridLayout>
+
+    <GridLayout
+        android:id="@+id/anotherSetLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/metronomeContainer"
+        android:visibility="gone">
+
+        <Button
+            android:id="@+id/anotherhihat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:background="@color/colorPrimaryDark"
+            android:onClick="playSound"
+            android:soundEffectsEnabled="false"
+            android:tag="1"
+            android:text="Hihat" />
+
+        <Button
+            android:id="@+id/anothercrash"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="0"
+            android:layout_rowWeight="1"
+            android:background="@android:color/holo_purple"
+            android:onClick="playSound"
+            android:soundEffectsEnabled="false"
+            android:tag="2"
+            android:text="Crash" />
+
+        <Button
+            android:id="@+id/anothersnare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="0"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:background="@android:color/holo_green_light"
+            android:onClick="playSound"
+            android:soundEffectsEnabled="false"
+            android:tag="3"
+            android:text="Snare" />
+
+        <Button
+            android:id="@+id/anotherkick"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_column="1"
+            android:layout_columnWeight="1"
+            android:layout_gravity="fill"
+            android:layout_row="1"
+            android:layout_rowWeight="1"
+            android:background="@android:color/holo_blue_bright"
+            android:onClick="playSound"
+            android:soundEffectsEnabled="false"
+            android:tag="4"
             android:text="kick" />
 
     </GridLayout>

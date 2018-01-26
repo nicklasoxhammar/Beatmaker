@@ -1,6 +1,8 @@
 package com.example.nick.beatmaker.activities;
 
 import android.content.Intent;
+import android.preference.CheckBoxPreference;
+import android.preference.Preference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -10,6 +12,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.Button;
+import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -17,6 +20,7 @@ import android.widget.TextView;
 import com.example.nick.beatmaker.Metronome;
 import com.example.nick.beatmaker.R;
 import com.example.nick.beatmaker.SoundPlayer;
+import com.example.nick.beatmaker.fragments.PadKitsFragment;
 import com.example.nick.beatmaker.listeners.MySharedPreferences;
 
 import java.lang.reflect.Field;
@@ -36,12 +40,15 @@ public class MainActivity extends AppCompatActivity {
     SeekBar bpmSlider;
 
     static RelativeLayout metronomeContainer;
+    static GridLayout anotherSetLayout;
+    static GridLayout standardDrumKitLayout;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
 
         SoundPlayer soundPlayer = new SoundPlayer(getApplicationContext());
 
@@ -52,6 +59,9 @@ public class MainActivity extends AppCompatActivity {
 
         metronomeContainer = (RelativeLayout) this.findViewById(R.id.metronomeContainer);
 
+        anotherSetLayout = (GridLayout) this.findViewById(R.id.anotherSetLayout);
+        standardDrumKitLayout = (GridLayout) this.findViewById(R.id.standardDrumKitLayout);
+
         showOrHideMetronome();
 
         metronomeButton = (Button) findViewById(R.id.metronomeButton);
@@ -60,6 +70,9 @@ public class MainActivity extends AppCompatActivity {
         bpmSlider = (SeekBar) findViewById(R.id.bpmSlider);
         bpmSlider.setMax(160);
         bpmSlider.setProgress(80);
+
+
+        checkPadKitPreference();
 
         bpmSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -97,10 +110,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(i);
                 return true;
 
-            /*case R.id.action_padKit:
+            case R.id.action_padKit:
                 Intent e = new Intent( this, PadKitsActivity.class);
                 startActivity(e);
-                return true;*/
+                return true;
 
             default:
                 // If we got here, the user's action was not recognized.
@@ -166,6 +179,24 @@ public class MainActivity extends AppCompatActivity {
     public void playSound(View v){
 
         SoundPlayer.playPadSound(Integer.parseInt(String.valueOf(v.getTag())));
+
+    }
+
+    public void checkPadKitPreference(){
+
+        if (MySharedPreferences.getPrefAnotherSet(this) == true){
+            Log.d(TAG, "checkPadKitPreference: another!");
+            anotherSetLayout.setVisibility(GridLayout.VISIBLE);
+        }else{
+            anotherSetLayout.setVisibility(GridLayout.GONE);
+        }
+
+        if (MySharedPreferences.getPrefStandardDrumkit(this) == true){
+            Log.d(TAG, "checkPadKitPreference: standard!");
+            standardDrumKitLayout.setVisibility(GridLayout.VISIBLE);
+        }else{
+            standardDrumKitLayout.setVisibility(GridLayout.GONE);
+        }
 
     }
 

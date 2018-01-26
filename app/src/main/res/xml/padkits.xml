@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+    <CheckBoxPreference
+        android:key="standardDrumkitKey"
+        android:title="Standard drumkit"
+        android:defaultValue="true" />
+
+    <CheckBoxPreference
+        android:key="anotherSetKey"
+        android:title="Another kit"
+        android:defaultValue="false" />
+
+</PreferenceScreen>
