@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
     SeekBar bpmSlider;
 
     static RelativeLayout metronomeContainer;
-    static GridLayout anotherSetLayout;
+    static GridLayout trapSetLayout;
     static GridLayout standardDrumKitLayout;
 
 
@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 
         metronomeContainer = (RelativeLayout) this.findViewById(R.id.metronomeContainer);
 
-        anotherSetLayout = (GridLayout) this.findViewById(R.id.anotherSetLayout);
+        trapSetLayout = (GridLayout) this.findViewById(R.id.trapSetLayout);
         standardDrumKitLayout = (GridLayout) this.findViewById(R.id.standardDrumKitLayout);
 
         showOrHideMetronome();
@@ -70,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         bpmSlider = (SeekBar) findViewById(R.id.bpmSlider);
         bpmSlider.setMax(160);
         bpmSlider.setProgress(80);
-
 
         checkPadKitPreference();
 
@@ -184,19 +183,21 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkPadKitPreference(){
 
-        if (MySharedPreferences.getPrefAnotherSet(this) == true){
-            Log.d(TAG, "checkPadKitPreference: another!");
-            anotherSetLayout.setVisibility(GridLayout.VISIBLE);
-        }else{
-            anotherSetLayout.setVisibility(GridLayout.GONE);
-        }
-
         if (MySharedPreferences.getPrefStandardDrumkit(this) == true){
-            Log.d(TAG, "checkPadKitPreference: standard!");
             standardDrumKitLayout.setVisibility(GridLayout.VISIBLE);
+            //SoundPlayer.standardKit(this);
         }else{
             standardDrumKitLayout.setVisibility(GridLayout.GONE);
         }
+
+        if (MySharedPreferences.getPrefAnotherSet(this) == true){
+            trapSetLayout.setVisibility(GridLayout.VISIBLE);
+            //SoundPlayer.trapKit(this);
+        }else{
+            trapSetLayout.setVisibility(GridLayout.GONE);
+        }
+
+
 
     }
 

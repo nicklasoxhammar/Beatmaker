@@ -22,7 +22,7 @@ public class PadKitsFragment extends PreferenceFragment {
 
 
     public static CheckBoxPreference standardDrumkitPref;
-    public static CheckBoxPreference anotherSetPref;
+    public static CheckBoxPreference trapSetPref;
 
     static ArrayList<CheckBoxPreference> padKits;
 
@@ -33,24 +33,24 @@ public class PadKitsFragment extends PreferenceFragment {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.padkits);
 
-        anotherSetPref = ((CheckBoxPreference) findPreference("anotherSetKey"));
+        trapSetPref = ((CheckBoxPreference) findPreference("trapSetKey"));
         standardDrumkitPref = ((CheckBoxPreference) findPreference("standardDrumkitKey"));
 
         padKits = new ArrayList<CheckBoxPreference>();
-        padKits.add(anotherSetPref);
+        padKits.add(trapSetPref);
         padKits.add(standardDrumkitPref);
 
         Preference.OnPreferenceChangeListener onPreferenceChangeListener = new Preference.OnPreferenceChangeListener() {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 String key = preference.getKey();
-                if (key.equals("anotherSetKey")) {
+                if (key.equals("trapSetKey")) {
                     //Reset other items
                     CheckBoxPreference p = (CheckBoxPreference)findPreference("standardDrumkitKey");
                     p.setChecked(false);
                 }
                 else if (key.equals("standardDrumkitKey")) {
                     //Reset other items
-                    CheckBoxPreference p = (CheckBoxPreference)findPreference("anotherSetKey");
+                    CheckBoxPreference p = (CheckBoxPreference)findPreference("trapSetKey");
                     p.setChecked(false);
                 }
 
@@ -61,7 +61,7 @@ public class PadKitsFragment extends PreferenceFragment {
                 if(preference == standardDrumkitPref) {
                     MySharedPreferences.setPrefStandardDrumkit(getActivity(), (boolean) newValue);
                     MySharedPreferences.setPrefAnotherSet(getActivity(), false);
-                }else if (preference == anotherSetPref) {
+                }else if (preference == trapSetPref) {
                     MySharedPreferences.setPrefAnotherSet(getActivity(), (boolean) newValue);
                     MySharedPreferences.setPrefStandardDrumkit(getActivity(), false);
                 }
@@ -70,7 +70,7 @@ public class PadKitsFragment extends PreferenceFragment {
             }
         };
 
-        anotherSetPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
+        trapSetPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
 
         standardDrumkitPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
 

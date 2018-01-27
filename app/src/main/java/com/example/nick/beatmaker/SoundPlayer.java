@@ -3,6 +3,12 @@ package com.example.nick.beatmaker;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.util.Log;
+import android.widget.GridLayout;
+
+import com.example.nick.beatmaker.listeners.MySharedPreferences;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -22,12 +28,27 @@ public class SoundPlayer {
 
     public SoundPlayer(Context context){
 
-        //hihat has an int value of 1, crash has value of 2, etc..
+        //standardhihat has an int value of 1, standardcrash has value of 2, etc..
         sp = new SoundPool(50, AudioManager.STREAM_MUSIC,0);
-        hihat = sp.load(context,R.raw.hihat,1);
-        crash = sp.load(context,R.raw.crash,1);
-        snare = sp.load(context,R.raw.snare,1);
-        kick = sp.load(context,R.raw.kick,1);
+
+
+        if (MySharedPreferences.getPrefStandardDrumkit(context) == true) {
+
+            hihat = sp.load(context, R.raw.standardhihat, 1);
+            crash = sp.load(context, R.raw.standardcrash, 1);
+            snare = sp.load(context, R.raw.standardsnare, 1);
+            kick = sp.load(context, R.raw.standardkick, 1);
+        }
+
+        else if (MySharedPreferences.getPrefAnotherSet(context) == true){
+
+            hihat = sp.load(context, R.raw.traphihat, 1);
+            crash = sp.load(context, R.raw.trapguncock, 1);
+            snare = sp.load(context, R.raw.trapsnare, 1);
+            kick = sp.load(context, R.raw.trapkick, 1);
+        }
+
+
 
         sounds = new int[]{hihat, crash, snare, kick};
 
@@ -50,4 +71,6 @@ public class SoundPlayer {
 
 
     }
+
+
 }

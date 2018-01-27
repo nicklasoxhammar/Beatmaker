@@ -6,8 +6,8 @@
         android:defaultValue="true" />
 
     <CheckBoxPreference
-        android:key="anotherSetKey"
-        android:title="Another kit"
+        android:key="trapSetKey"
+        android:title="Trap kit"
         android:defaultValue="false" />
 
 </PreferenceScreen>

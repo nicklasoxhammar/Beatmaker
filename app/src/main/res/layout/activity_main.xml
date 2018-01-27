@@ -57,7 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/metronomeContainer"
-        android:visibility="gone">
+        android:visibility="visible">
 
 
         <Button
@@ -123,14 +123,15 @@
     </GridLayout>
 
     <GridLayout
-        android:id="@+id/anotherSetLayout"
+        android:id="@+id/trapSetLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/metronomeContainer"
-        android:visibility="gone">
+        android:visibility="gone"
+        >
 
         <Button
-            android:id="@+id/anotherhihat"
+            android:id="@+id/traphihat"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -145,7 +146,7 @@
             android:text="Hihat" />
 
         <Button
-            android:id="@+id/anothercrash"
+            android:id="@+id/trapguncock"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
@@ -157,10 +158,10 @@
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="2"
-            android:text="Crash" />
+            android:text="gun" />
 
         <Button
-            android:id="@+id/anothersnare"
+            android:id="@+id/trapsnare"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -175,7 +176,7 @@
             android:text="Snare" />
 
         <Button
-            android:id="@+id/anotherkick"
+            android:id="@+id/trapkick"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"

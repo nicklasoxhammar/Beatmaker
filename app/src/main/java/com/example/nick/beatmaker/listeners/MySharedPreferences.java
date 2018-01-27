@@ -16,7 +16,7 @@ public class MySharedPreferences {
     private static String PrefMetronome = "prefMetronome";
 
     private static String PrefStandardDrumkit = "prefStandardDrumkit";
-    private static String PrefAnotherSet = "prefAnotherSet";
+    private static String PrefTrapSet = "prefTrapSet";
 
 
     public static void setPrefMetronome(Context context, boolean isEnabled) {
@@ -46,12 +46,12 @@ public class MySharedPreferences {
     public static void setPrefAnotherSet(Context context, boolean isEnabled) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean(PrefAnotherSet, isEnabled);
+        editor.putBoolean(PrefTrapSet, isEnabled);
         editor.apply();
     }
 
     public static boolean getPrefAnotherSet(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getBoolean(PrefAnotherSet, false);
+        return preferences.getBoolean(PrefTrapSet, false);
     }
 }
