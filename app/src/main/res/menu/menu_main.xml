@@ -3,12 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".activities.MainActivity">
 
-    <!-- "Mark Favorite", should appear as action button if possible
+    <!-- "Mark Favorite", should appear as action button if possible-->
+
     <item
-    android:id="@+id/action_favorite"
-    android:icon="@drawable/ic_favorite_black_48dp"
-    android:title="@string/action_favorite"
-    app:showAsAction="ifRoom"/>-->
+        android:id="@+id/action_record"
+        android:icon="@android:drawable/ic_notification_overlay"
+        android:title="Record"
+        app:showAsAction="ifRoom" />
 
     <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/action_settings"
@@ -17,6 +18,11 @@
 
     <item android:id="@+id/action_padKit"
         android:title="Pad kits"
+        app:showAsAction="never"
+        />
+
+    <item android:id="@+id/action_recordings"
+        android:title="Recorded"
         app:showAsAction="never"
         />
 

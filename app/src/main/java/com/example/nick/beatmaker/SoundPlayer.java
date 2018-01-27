@@ -29,7 +29,7 @@ public class SoundPlayer {
     public SoundPlayer(Context context){
 
         //standardhihat has an int value of 1, standardcrash has value of 2, etc..
-        sp = new SoundPool(50, AudioManager.STREAM_MUSIC,0);
+        sp = new SoundPool(100, AudioManager.STREAM_MUSIC,0);
 
 
         if (MySharedPreferences.getPrefStandardDrumkit(context) == true) {
