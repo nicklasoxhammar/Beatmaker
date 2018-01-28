@@ -1,8 +1,6 @@
 package com.example.nick.beatmaker.activities;
 
 import android.content.Intent;
-import android.preference.CheckBoxPreference;
-import android.preference.Preference;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -20,7 +18,6 @@ import android.widget.TextView;
 import com.example.nick.beatmaker.Metronome;
 import com.example.nick.beatmaker.R;
 import com.example.nick.beatmaker.SoundPlayer;
-import com.example.nick.beatmaker.fragments.PadKitsFragment;
 import com.example.nick.beatmaker.listeners.MySharedPreferences;
 
 import java.lang.reflect.Field;

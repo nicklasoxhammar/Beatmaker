@@ -1,6 +1,10 @@
 package com.example.nick.beatmaker;
 
 import android.media.MediaRecorder;
+import android.os.Environment;
+import android.util.Log;
+
+import java.io.IOException;
 
 /**
  * Created by Nick on 2018-01-13.
@@ -8,16 +12,40 @@ import android.media.MediaRecorder;
 
 public class AudioRecorder {
 
-    /*MediaRecorder recorder;
+    MediaRecorder recorder;
 
-    AudioRecorder(){
+    String outputFile = Environment.getExternalStorageDirectory().getAbsolutePath();
+
+
+    AudioRecorder() throws IOException {
 
         recorder = new MediaRecorder();
         recorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.DEFAULT);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
-        recorder.setOutputFile();
-        recorder.prepare();
+        recorder.setOutputFile(outputFile);
 
-    }*/
+    }
+
+    public void startRecording(){
+
+        try {
+            recorder.prepare();
+        } catch (IllegalStateException e) {
+            e.printStackTrace();
+
+        } catch (IOException e) {
+
+            e.printStackTrace();
+        }
+
+        Log.i("Try","Exception");
+        recorder.start();
+
+    }
+
+    public void stopRecording(){
+
+        recorder.stop();
+    }
 }
