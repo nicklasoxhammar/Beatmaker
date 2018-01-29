@@ -61,6 +61,7 @@
 
         <Button
             android:id="@+id/hihat"
+            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -68,7 +69,7 @@
             android:layout_gravity="fill"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:background="@color/colorPrimary"
+            android:background="@drawable/blue_button"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="1"
@@ -76,6 +77,7 @@
 
         <Button
             android:id="@+id/crash"
+            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
@@ -83,7 +85,7 @@
             android:layout_gravity="fill"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:background="@android:color/holo_green_light"
+            android:background="@drawable/green_buton"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="2"
@@ -91,6 +93,7 @@
 
         <Button
             android:id="@+id/snare"
+            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -98,7 +101,7 @@
             android:layout_gravity="fill"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:background="@android:color/holo_purple"
+            android:background="@drawable/purple_button"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="3"
@@ -106,6 +109,7 @@
 
         <Button
             android:id="@+id/kick"
+            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
@@ -113,7 +117,7 @@
             android:layout_gravity="fill"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:background="@android:color/holo_orange_light"
+            android:background="@drawable/orange_button"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="4"
@@ -131,6 +135,7 @@
 
         <Button
             android:id="@+id/traphihat"
+            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -138,7 +143,7 @@
             android:layout_gravity="fill"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:background="@color/colorPrimaryDark"
+            android:background="@drawable/blue_button"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="1"
@@ -146,6 +151,7 @@
 
         <Button
             android:id="@+id/trapguncock"
+            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
@@ -153,7 +159,7 @@
             android:layout_gravity="fill"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:background="@android:color/holo_purple"
+            android:background="@drawable/purple_button"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="2"
@@ -161,6 +167,7 @@
 
         <Button
             android:id="@+id/trapsnare"
+            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="0"
@@ -168,7 +175,7 @@
             android:layout_gravity="fill"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:background="@android:color/holo_green_light"
+            android:background="@drawable/green_buton"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="3"
@@ -176,6 +183,7 @@
 
         <Button
             android:id="@+id/trapkick"
+            android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_column="1"
@@ -183,7 +191,7 @@
             android:layout_gravity="fill"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:background="@android:color/holo_blue_bright"
+            android:background="@drawable/orange_button"
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="4"
