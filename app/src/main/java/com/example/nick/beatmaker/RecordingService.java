@@ -22,6 +22,8 @@ import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by Nick on 2018-01-13.
  */
@@ -80,7 +82,7 @@ public class RecordingService extends Service{
         setFileNameAndPath();
 
         mRecorder = new MediaRecorder();
-        mRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+        mRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
         mRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
         mRecorder.setOutputFile(mFilePath);
         mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
@@ -109,7 +111,7 @@ public class RecordingService extends Service{
             mFileName = getString(R.string.default_file_name)
                     + "_" + (mDatabase.getCount() + count) + ".mp4";
             mFilePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-            mFilePath += "/SoundRecorder/" + mFileName;
+            mFilePath += "/BeatMaker/" + mFileName;
 
             f = new File(mFilePath);
         }while (f.exists() && !f.isDirectory());
@@ -155,7 +157,7 @@ public class RecordingService extends Service{
     private Notification createNotification() {
         NotificationCompat.Builder mBuilder =
                 new NotificationCompat.Builder(getApplicationContext())
-                        .setSmallIcon(R.drawable.ic_fiber_manual_record_black_24dp)
+                        .setSmallIcon(R.drawable.ic_media_play_dark)
                         .setContentTitle(getString(R.string.notification_recording))
                         .setContentText(mTimerFormat.format(mElapsedSeconds * 1000))
                         .setOngoing(true);

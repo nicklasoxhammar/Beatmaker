@@ -7,13 +7,13 @@
 
     <item
         android:id="@+id/action_record"
-        android:icon="@android:drawable/ic_notification_overlay"
+        android:icon="@drawable/ic_mic_white_36dp"
         android:title="Record"
         app:showAsAction="ifRoom" />
 
     <!-- Settings, should always be in the overflow -->
     <item android:id="@+id/action_settings"
-        android:title="Settings"
+        android:title="@string/action_settings"
         app:showAsAction="never"/>
 
     <item android:id="@+id/action_padKit"
@@ -22,7 +22,7 @@
         />
 
     <item android:id="@+id/action_recordings"
-        android:title="Recorded"
+        android:title="@string/Recorded"
         app:showAsAction="never"
         />
 

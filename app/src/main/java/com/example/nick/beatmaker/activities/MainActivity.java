@@ -1,8 +1,10 @@
 package com.example.nick.beatmaker.activities;
 
+import android.content.ClipData;
 import android.content.Intent;
 import android.os.Environment;
 import android.os.SystemClock;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -15,6 +17,7 @@ import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Chronometer;
 import android.widget.GridLayout;
+import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -39,7 +42,9 @@ public class MainActivity extends AppCompatActivity {
     private boolean mStartRecording = true;
     private boolean mPauseRecording = true;
 
-    Button mRecordButton;
+    private Menu menu;
+
+
 
     Metronome metronome;
     Button metronomeButton;
@@ -57,9 +62,6 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        mRecordButton = (Button) findViewById(R.id.action_record);
-
 
         SoundPlayer soundPlayer = new SoundPlayer(getApplicationContext());
 
@@ -109,6 +111,7 @@ public class MainActivity extends AppCompatActivity {
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+        this.menu = menu;
         return true;
     }
 
@@ -228,11 +231,11 @@ public class MainActivity extends AppCompatActivity {
 
         if (start) {
             // start recording
-            //mRecordButton.setImageResource(R.drawable.ic_media_stop);
+            menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.ic_media_stop_dark));
             //mPauseButton.setVisibility(View.VISIBLE);
             mStartRecording = false;
             Toast.makeText(this, R.string.toast_recording_start,Toast.LENGTH_SHORT).show();
-            File folder = new File(Environment.getExternalStorageDirectory() + "/SoundRecorder");
+            File folder = new File(Environment.getExternalStorageDirectory() + "/Beatmaker");
             if (!folder.exists()) {
                 //folder /SoundRecorder doesn't exist, create the folder
                 folder.mkdir();
@@ -245,6 +248,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         } else {
+            menu.getItem(0).setIcon(ContextCompat.getDrawable(this, R.drawable.ic_mic_white_36dp));
             mStartRecording = true;
             //stop recording
             this.stopService(intent);
