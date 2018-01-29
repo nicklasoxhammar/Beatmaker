@@ -1,9 +1,13 @@
 package com.example.nick.beatmaker.activities;
 
+import android.Manifest;
 import android.content.ClipData;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.os.SystemClock;
+import android.support.annotation.NonNull;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,9 +39,12 @@ import java.lang.reflect.Field;
 import static java.lang.String.valueOf;
 
 
+
+
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
 
     private boolean mStartRecording = true;
     private boolean mPauseRecording = true;
@@ -57,11 +64,29 @@ public class MainActivity extends AppCompatActivity {
     static GridLayout trapSetLayout;
     static GridLayout standardDrumKitLayout;
 
+    // Requesting permission to RECORD_AUDIO
+    private boolean permissionToRecordAccepted = false;
+    private String [] permissions = {Manifest.permission.RECORD_AUDIO};
+
+    @Override
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        switch (requestCode) {
+            case REQUEST_RECORD_AUDIO_PERMISSION:
+                permissionToRecordAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                break;
+        }
+        if (!permissionToRecordAccepted) finish();
+    }
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
 
         SoundPlayer soundPlayer = new SoundPlayer(getApplicationContext());
 
@@ -135,7 +160,6 @@ public class MainActivity extends AppCompatActivity {
 
             case R.id.action_record:
                 onRecord(mStartRecording);
-
 
 
             default:

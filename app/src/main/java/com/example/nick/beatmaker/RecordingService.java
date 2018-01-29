@@ -83,15 +83,13 @@ public class RecordingService extends Service{
 
         mRecorder = new MediaRecorder();
         mRecorder.setAudioSource(MediaRecorder.AudioSource.DEFAULT);
-        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4);
+        mRecorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         mRecorder.setOutputFile(mFilePath);
-        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC);
-        mRecorder.setAudioChannels(1);
+        mRecorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
+        //mRecorder.setAudioChannels(1);
 
         try {
             mRecorder.prepare();
-            mRecorder.start();
-            mStartingTimeMillis = System.currentTimeMillis();
 
             //startTimer();
             //startForeground(1, createNotification());
@@ -99,6 +97,10 @@ public class RecordingService extends Service{
         } catch (IOException e) {
             Log.e(LOG_TAG, "prepare() failed");
         }
+
+        mRecorder.start();
+        mStartingTimeMillis = System.currentTimeMillis();
+        Log.d(TAG, "startRecording: RECORDING!!!!!!!!!!!");
     }
 
     public void setFileNameAndPath(){
@@ -109,7 +111,7 @@ public class RecordingService extends Service{
             count++;
 
             mFileName = getString(R.string.default_file_name)
-                    + "_" + (mDatabase.getCount() + count) + ".mp4";
+                    + "_" + (mDatabase.getCount() + count) + ".3gp";
             mFilePath = Environment.getExternalStorageDirectory().getAbsolutePath();
             mFilePath += "/BeatMaker/" + mFileName;
 
