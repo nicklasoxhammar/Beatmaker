@@ -5,11 +5,9 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
-import android.widget.CheckBox;
 
 import com.example.nick.beatmaker.R;
-import com.example.nick.beatmaker.activities.MainActivity;
-import com.example.nick.beatmaker.listeners.MySharedPreferences;
+import com.example.nick.beatmaker.MySharedPreferences;
 
 
 /**

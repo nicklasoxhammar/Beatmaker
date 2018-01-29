@@ -5,14 +5,11 @@ import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import com.example.nick.beatmaker.R;
-import com.example.nick.beatmaker.listeners.MySharedPreferences;
+import com.example.nick.beatmaker.MySharedPreferences;
 
 import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
 
 /**
  * Created by Nick on 2018-01-26.

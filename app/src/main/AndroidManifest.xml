@@ -30,6 +30,13 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.nick.beatmaker.activities.MainActivity" />
         </activity>
+        <activity android:name=".activities.RecordedActivity"
+            android:label="PadKits"
+            android:parentActivityName=".activities.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.nick.beatmaker.activities.MainActivity" />
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.RECORD_AUDIO" />

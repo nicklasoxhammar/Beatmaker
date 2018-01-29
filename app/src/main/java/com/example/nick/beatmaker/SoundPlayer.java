@@ -3,12 +3,6 @@ package com.example.nick.beatmaker;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.util.Log;
-import android.widget.GridLayout;
-
-import com.example.nick.beatmaker.listeners.MySharedPreferences;
-
-import static android.content.ContentValues.TAG;
 
 
 /**

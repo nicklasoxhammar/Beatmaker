@@ -1,6 +1,8 @@
 package com.example.nick.beatmaker.activities;
 
 import android.content.Intent;
+import android.os.Environment;
+import android.os.SystemClock;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -9,17 +11,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewConfiguration;
+import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.Chronometer;
 import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.nick.beatmaker.Metronome;
 import com.example.nick.beatmaker.R;
+import com.example.nick.beatmaker.RecordingService;
 import com.example.nick.beatmaker.SoundPlayer;
-import com.example.nick.beatmaker.listeners.MySharedPreferences;
+import com.example.nick.beatmaker.MySharedPreferences;
 
+import java.io.File;
 import java.lang.reflect.Field;
 
 import static java.lang.String.valueOf;
@@ -28,6 +35,11 @@ import static java.lang.String.valueOf;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+
+    private boolean mStartRecording = true;
+    private boolean mPauseRecording = true;
+
+    Button mRecordButton;
 
     Metronome metronome;
     Button metronomeButton;
@@ -45,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        mRecordButton = (Button) findViewById(R.id.action_record);
 
 
         SoundPlayer soundPlayer = new SoundPlayer(getApplicationContext());
@@ -110,6 +124,16 @@ public class MainActivity extends AppCompatActivity {
                 Intent e = new Intent( this, PadKitsActivity.class);
                 startActivity(e);
                 return true;
+
+            case R.id.action_recordings:
+                Intent u = new Intent(this, RecordedActivity.class);
+                startActivity(u);
+                return true;
+
+            case R.id.action_record:
+                onRecord(mStartRecording);
+
+
 
             default:
                 // If we got here, the user's action was not recognized.
@@ -196,6 +220,37 @@ public class MainActivity extends AppCompatActivity {
 
 
 
+    }
+
+    private void onRecord(boolean start){
+
+        Intent intent = new Intent(this, RecordingService.class);
+
+        if (start) {
+            // start recording
+            //mRecordButton.setImageResource(R.drawable.ic_media_stop);
+            //mPauseButton.setVisibility(View.VISIBLE);
+            mStartRecording = false;
+            Toast.makeText(this, R.string.toast_recording_start,Toast.LENGTH_SHORT).show();
+            File folder = new File(Environment.getExternalStorageDirectory() + "/SoundRecorder");
+            if (!folder.exists()) {
+                //folder /SoundRecorder doesn't exist, create the folder
+                folder.mkdir();
+            }
+
+            //start RecordingService
+            this.startService(intent);
+            //keep screen on while recording
+            this.getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+
+
+        } else {
+            mStartRecording = true;
+            //stop recording
+            this.stopService(intent);
+            //allow the screen to turn off again once recording is finished
+            this.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        }
     }
 
 
