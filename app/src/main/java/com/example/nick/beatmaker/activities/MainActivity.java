@@ -233,14 +233,12 @@ public class MainActivity extends AppCompatActivity {
 
         if (MySharedPreferences.getPrefStandardDrumkit(this) == true){
             standardDrumKitLayout.setVisibility(GridLayout.VISIBLE);
-            //SoundPlayer.standardKit(this);
         }else{
             standardDrumKitLayout.setVisibility(GridLayout.GONE);
         }
 
         if (MySharedPreferences.getPrefAnotherSet(this) == true){
             trapSetLayout.setVisibility(GridLayout.VISIBLE);
-            //SoundPlayer.trapKit(this);
         }else{
             trapSetLayout.setVisibility(GridLayout.GONE);
         }

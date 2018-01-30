@@ -14,7 +14,7 @@
         android:id="@+id/metronomeContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:visibility="gone"
+        android:visibility="visible"
         android:layout_below="@id/toolbar">
 
         <Button
@@ -22,9 +22,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/bpmSlider"
-            android:background="@color/colorAccent"
+            android:background="@drawable/metronome_start_button"
             android:onClick="startMetronome"
             android:text="Start"
+            android:layout_marginLeft="5dp"
             android:textColor="@android:color/background_light" />
 
         <TextView

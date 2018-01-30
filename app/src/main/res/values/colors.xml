@@ -20,4 +20,7 @@
     <!-- Green style gradient -->
     <color name="greenstartcolor">#b4fa51</color>
     <color name="greenndcolor">#78cb29</color>
+
+    <!-- Transparent color -->
+    <color name="transparent">#00000000</color>
 </resources>
