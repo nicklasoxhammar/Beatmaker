@@ -57,6 +57,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/metronomeContainer"
+        android:tag="standardDrumKit"
         android:visibility="visible">
 
 
@@ -127,11 +128,12 @@
     </GridLayout>
 
     <GridLayout
-        android:id="@+id/trapSetLayout"
+        android:id="@+id/trapKitLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/metronomeContainer"
         android:visibility="gone"
+        android:tag="trapKit"
         >
 
         <Button

@@ -4,12 +4,13 @@
     >
     <CheckBoxPreference
         android:defaultValue="true"
-        android:key="standardDrumkitKey"
-        android:title="Standard drumkit" />
+        android:key="standardDrumKit"
+        android:title="Standard Drum Kit"
+        />
 
     <CheckBoxPreference
-        android:key="trapSetKey"
-        android:title="Trap kit"
+        android:key="trapKit"
+        android:title="Trap Kit"
         android:defaultValue="false"
         />
 

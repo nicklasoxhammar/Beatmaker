@@ -18,8 +18,8 @@ import java.util.ArrayList;
 public class PadKitsFragment extends PreferenceFragment {
 
 
-    public static CheckBoxPreference standardDrumkitPref;
-    public static CheckBoxPreference trapSetPref;
+    public static CheckBoxPreference standardDrumKitPref;
+    public static CheckBoxPreference trapKitPref;
 
     static ArrayList<CheckBoxPreference> padKits;
 
@@ -30,24 +30,24 @@ public class PadKitsFragment extends PreferenceFragment {
         super.onCreate(savedInstanceState);
         addPreferencesFromResource(R.xml.padkits);
 
-        trapSetPref = ((CheckBoxPreference) findPreference("trapSetKey"));
-        standardDrumkitPref = ((CheckBoxPreference) findPreference("standardDrumkitKey"));
+        trapKitPref = ((CheckBoxPreference) findPreference("trapKit"));
+        standardDrumKitPref = ((CheckBoxPreference) findPreference("standardDrumKit"));
 
         padKits = new ArrayList<CheckBoxPreference>();
-        padKits.add(trapSetPref);
-        padKits.add(standardDrumkitPref);
+        padKits.add(trapKitPref);
+        padKits.add(standardDrumKitPref);
 
         Preference.OnPreferenceChangeListener onPreferenceChangeListener = new Preference.OnPreferenceChangeListener() {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 String key = preference.getKey();
-                if (key.equals("trapSetKey")) {
+                if (key.equals("trapKit")) {
                     //Reset other items
-                    CheckBoxPreference p = (CheckBoxPreference)findPreference("standardDrumkitKey");
+                    CheckBoxPreference p = (CheckBoxPreference)findPreference("standardDrumKit");
                     p.setChecked(false);
                 }
-                else if (key.equals("standardDrumkitKey")) {
+                else if (key.equals("standardDrumKit")) {
                     //Reset other items
-                    CheckBoxPreference p = (CheckBoxPreference)findPreference("trapSetKey");
+                    CheckBoxPreference p = (CheckBoxPreference)findPreference("trapKit");
                     p.setChecked(false);
                 }
 
@@ -55,26 +55,25 @@ public class PadKitsFragment extends PreferenceFragment {
                 //i.e confirms value when newValue is checked (true) and discards newValue
                 //when newValue is unchecked (false)
 
-                if(preference == standardDrumkitPref) {
-                    MySharedPreferences.setPrefStandardDrumkit(getActivity(), (boolean) newValue);
-                    MySharedPreferences.setPrefAnotherSet(getActivity(), false);
-                }else if (preference == trapSetPref) {
-                    MySharedPreferences.setPrefAnotherSet(getActivity(), (boolean) newValue);
-                    MySharedPreferences.setPrefStandardDrumkit(getActivity(), false);
+                if(preference == standardDrumKitPref) {
+                    MySharedPreferences.setPrefStandardDrumKit(getActivity(), (boolean) newValue);
+                    MySharedPreferences.setPrefTrapKit(getActivity(), false);
+                }else if (preference == trapKitPref) {
+                    MySharedPreferences.setPrefTrapKit(getActivity(), (boolean) newValue);
+                    MySharedPreferences.setPrefStandardDrumKit(getActivity(), false);
                 }
 
                 return (boolean) newValue;
             }
         };
 
-        trapSetPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
+        trapKitPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
 
-        standardDrumkitPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
-
-
-
+        standardDrumKitPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
 
     }
 
-
+    public static ArrayList<CheckBoxPreference> getPadKits() {
+        return padKits;
+    }
 }

@@ -26,7 +26,7 @@ public class SoundPlayer {
         sp = new SoundPool(100, AudioManager.STREAM_MUSIC,0);
 
 
-        if (MySharedPreferences.getPrefStandardDrumkit(context) == true) {
+        if (MySharedPreferences.getPrefStandardDrumKit(context) == true) {
 
             hihat = sp.load(context, R.raw.standardhihat, 1);
             crash = sp.load(context, R.raw.standardcrash, 1);
@@ -34,7 +34,7 @@ public class SoundPlayer {
             kick = sp.load(context, R.raw.standardkick, 1);
         }
 
-        else if (MySharedPreferences.getPrefAnotherSet(context) == true){
+        else if (MySharedPreferences.getPrefTrapKit(context) == true){
 
             hihat = sp.load(context, R.raw.traphihat, 1);
             crash = sp.load(context, R.raw.trapguncock, 1);

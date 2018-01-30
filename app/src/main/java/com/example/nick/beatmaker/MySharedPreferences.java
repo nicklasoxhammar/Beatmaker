@@ -15,8 +15,8 @@ public class MySharedPreferences {
 
     private static String PrefMetronome = "prefMetronome";
 
-    private static String PrefStandardDrumkit = "prefStandardDrumkit";
-    private static String PrefTrapSet = "prefTrapSet";
+    private static String PrefStandardDrumKit = "prefStandardDrumKit";
+    private static String PrefTrapKit = "prefTrapKit";
 
 
     public static void setPrefMetronome(Context context, boolean isEnabled) {
@@ -31,27 +31,27 @@ public class MySharedPreferences {
         return preferences.getBoolean(PrefMetronome, false);
     }
 
-    public static void setPrefStandardDrumkit(Context context, boolean isEnabled) {
+    public static void setPrefStandardDrumKit(Context context, boolean isEnabled) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean(PrefStandardDrumkit, isEnabled);
+        editor.putBoolean(PrefStandardDrumKit, isEnabled);
         editor.apply();
     }
 
-    public static boolean getPrefStandardDrumkit(Context context) {
+    public static boolean getPrefStandardDrumKit(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getBoolean(PrefStandardDrumkit, false);
+        return preferences.getBoolean(PrefStandardDrumKit, false);
     }
 
-    public static void setPrefAnotherSet(Context context, boolean isEnabled) {
+    public static void setPrefTrapKit(Context context, boolean isEnabled) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = preferences.edit();
-        editor.putBoolean(PrefTrapSet, isEnabled);
+        editor.putBoolean(PrefTrapKit, isEnabled);
         editor.apply();
     }
 
-    public static boolean getPrefAnotherSet(Context context) {
+    public static boolean getPrefTrapKit(Context context) {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
-        return preferences.getBoolean(PrefTrapSet, false);
+        return preferences.getBoolean(PrefTrapKit, false);
     }
 }

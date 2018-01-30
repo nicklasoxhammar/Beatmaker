@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Environment;
 import android.os.SystemClock;
+import android.preference.CheckBoxPreference;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -32,9 +33,11 @@ import com.example.nick.beatmaker.R;
 import com.example.nick.beatmaker.RecordingService;
 import com.example.nick.beatmaker.SoundPlayer;
 import com.example.nick.beatmaker.MySharedPreferences;
+import com.example.nick.beatmaker.fragments.PadKitsFragment;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.util.ArrayList;
 
 import static java.lang.String.valueOf;
 
@@ -51,6 +54,8 @@ public class MainActivity extends AppCompatActivity {
 
     private Menu menu;
 
+    ArrayList<GridLayout> padKitLayouts;
+
 
 
     Metronome metronome;
@@ -61,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     SeekBar bpmSlider;
 
     static RelativeLayout metronomeContainer;
-    static GridLayout trapSetLayout;
+    static GridLayout trapKitLayout;
     static GridLayout standardDrumKitLayout;
 
     // Requesting permission to RECORD_AUDIO
@@ -97,8 +102,9 @@ public class MainActivity extends AppCompatActivity {
 
         metronomeContainer = (RelativeLayout) this.findViewById(R.id.metronomeContainer);
 
-        trapSetLayout = (GridLayout) this.findViewById(R.id.trapSetLayout);
-        standardDrumKitLayout = (GridLayout) this.findViewById(R.id.standardDrumKitLayout);
+        padKitLayouts = new ArrayList<GridLayout>();
+        padKitLayouts.add(trapKitLayout = (GridLayout) this.findViewById(R.id.trapKitLayout));
+        padKitLayouts.add(standardDrumKitLayout = (GridLayout) this.findViewById(R.id.standardDrumKitLayout));
 
         showOrHideMetronome();
 
@@ -231,17 +237,32 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkPadKitPreference(){
 
-        if (MySharedPreferences.getPrefStandardDrumkit(this) == true){
+        for(CheckBoxPreference padKit : PadKitsFragment.getPadKits()){
+
+            if (padKit.isChecked()){
+
+                for (GridLayout padKitLayout : padKitLayouts){
+
+                    if (padKit.getKey().equals(padKitLayout.getTag())){
+                        padKitLayout.setVisibility(GridLayout.VISIBLE);
+                    }else{
+                        padKitLayout.setVisibility(GridLayout.GONE);
+                    }
+                }
+            }
+        }
+
+        /*if (MySharedPreferences.getPrefStandardDrumKit(this) == true){
             standardDrumKitLayout.setVisibility(GridLayout.VISIBLE);
         }else{
             standardDrumKitLayout.setVisibility(GridLayout.GONE);
         }
 
-        if (MySharedPreferences.getPrefAnotherSet(this) == true){
-            trapSetLayout.setVisibility(GridLayout.VISIBLE);
+        if (MySharedPreferences.getPrefTrapKit(this) == true){
+            trapKitLayout.setVisibility(GridLayout.VISIBLE);
         }else{
-            trapSetLayout.setVisibility(GridLayout.GONE);
-        }
+            trapKitLayout.setVisibility(GridLayout.GONE);
+        }*/
 
 
 
