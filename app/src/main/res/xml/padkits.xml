@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+<PreferenceScreen xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
     <CheckBoxPreference
+        android:defaultValue="true"
         android:key="standardDrumkitKey"
-        android:title="Standard drumkit"
-        android:defaultValue="true" />
+        android:title="Standard drumkit" />
 
     <CheckBoxPreference
         android:key="trapSetKey"
         android:title="Trap kit"
-        android:defaultValue="false" />
+        android:defaultValue="false"
+        />
 
 </PreferenceScreen>

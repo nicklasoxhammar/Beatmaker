@@ -73,7 +73,7 @@
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="1"
-            android:text="@string/Hihat" />
+             />
 
         <Button
             android:id="@+id/crash"
@@ -89,7 +89,7 @@
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="2"
-            android:text="@string/Crash" />
+             />
 
         <Button
             android:id="@+id/snare"
@@ -105,7 +105,7 @@
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="3"
-            android:text="@string/Snare" />
+            />
 
         <Button
             android:id="@+id/kick"
@@ -121,7 +121,7 @@
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="4"
-            android:text="@string/Kick" />
+             />
 
     </GridLayout>
 
@@ -147,7 +147,7 @@
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="1"
-            android:text="@string/Hihat" />
+            />
 
         <Button
             android:id="@+id/trapguncock"
@@ -163,7 +163,7 @@
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="2"
-            android:text="@string/Guncock" />
+            />
 
         <Button
             android:id="@+id/trapsnare"
@@ -179,7 +179,7 @@
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="3"
-            android:text="@string/Snare" />
+            />
 
         <Button
             android:id="@+id/trapkick"
@@ -195,7 +195,7 @@
             android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="4"
-            android:text="@string/Kick" />
+            />
 
     </GridLayout>
 

@@ -100,7 +100,6 @@ public class RecordingService extends Service{
 
         mRecorder.start();
         mStartingTimeMillis = System.currentTimeMillis();
-        Log.d(TAG, "startRecording: RECORDING!!!!!!!!!!!");
     }
 
     public void setFileNameAndPath(){

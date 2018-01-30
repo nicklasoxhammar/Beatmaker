@@ -32,8 +32,6 @@ public class RecordedActivity extends AppCompatActivity{
             actionBar.setDisplayShowHomeEnabled(true);
         }
 
-        Log.d("tag", "onCreate: reach?");
-
         /*getFragmentManager()
                 .beginTransaction()
                 .replace(R.id.container, new FileViewerFragment())

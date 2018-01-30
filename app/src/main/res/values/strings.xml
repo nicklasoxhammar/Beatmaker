@@ -2,6 +2,7 @@
 
     <!-- Toolbar -->
     <string name="app_name">Beatmaker</string>
+    <string name="action_settings">Settings</string>
 
     <!-- Toasts -->
     <string name="toast_recording_start">Recording started</string>

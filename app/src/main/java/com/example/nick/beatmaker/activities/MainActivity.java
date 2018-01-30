@@ -259,9 +259,9 @@ public class MainActivity extends AppCompatActivity {
             //mPauseButton.setVisibility(View.VISIBLE);
             mStartRecording = false;
             Toast.makeText(this, R.string.toast_recording_start,Toast.LENGTH_SHORT).show();
-            File folder = new File(Environment.getExternalStorageDirectory() + "/Beatmaker");
+            File folder = new File(Environment.getExternalStorageDirectory() + "/BeatMaker");
             if (!folder.exists()) {
-                //folder /SoundRecorder doesn't exist, create the folder
+                //folder /BeatMaker doesn't exist, create the folder
                 folder.mkdir();
             }
 

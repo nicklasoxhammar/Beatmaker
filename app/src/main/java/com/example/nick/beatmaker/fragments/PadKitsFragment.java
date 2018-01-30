@@ -63,7 +63,7 @@ public class PadKitsFragment extends PreferenceFragment {
                     MySharedPreferences.setPrefStandardDrumkit(getActivity(), false);
                 }
 
-                return true;
+                return (boolean) newValue;
             }
         };
 
@@ -74,12 +74,6 @@ public class PadKitsFragment extends PreferenceFragment {
 
 
 
-    }
-
-
-    public static ArrayList<CheckBoxPreference> getPadKitList(){
-
-        return padKits;
     }
 
 
