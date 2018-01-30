@@ -37,43 +37,46 @@ public class PadKitsFragment extends PreferenceFragment {
         padKits.add(trapKitPref);
         padKits.add(standardDrumKitPref);
 
+
         Preference.OnPreferenceChangeListener onPreferenceChangeListener = new Preference.OnPreferenceChangeListener() {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 String key = preference.getKey();
-                if (key.equals("trapKit")) {
-                    //Reset other items
-                    CheckBoxPreference p = (CheckBoxPreference)findPreference("standardDrumKit");
-                    p.setChecked(false);
-                }
-                else if (key.equals("standardDrumKit")) {
-                    //Reset other items
-                    CheckBoxPreference p = (CheckBoxPreference)findPreference("trapKit");
-                    p.setChecked(false);
-                }
 
-                //Force the current focused checkbox to always stay checked when pressed
-                //i.e confirms value when newValue is checked (true) and discards newValue
-                //when newValue is unchecked (false)
+                if (preference == trapKitPref) {
+                    MySharedPreferences.setPrefTrapKit(getActivity(), true);
 
-                if(preference == standardDrumKitPref) {
-                    MySharedPreferences.setPrefStandardDrumKit(getActivity(), (boolean) newValue);
-                    MySharedPreferences.setPrefTrapKit(getActivity(), false);
-                }else if (preference == trapKitPref) {
-                    MySharedPreferences.setPrefTrapKit(getActivity(), (boolean) newValue);
                     MySharedPreferences.setPrefStandardDrumKit(getActivity(), false);
+                    //Reset other items
+                    for (CheckBoxPreference padKit : padKits) {
+                        if (padKit != trapKitPref) {
+                            padKit.setChecked(false);
+                        }
+                    }
                 }
+
+                else if (preference == standardDrumKitPref) {
+                    MySharedPreferences.setPrefStandardDrumKit(getActivity(), true);
+
+                    MySharedPreferences.setPrefTrapKit(getActivity(), false);
+                    //Reset other items
+                    for(CheckBoxPreference padKit : padKits) {
+                        if (padKit != standardDrumKitPref)
+                            padKit.setChecked(false);
+                    }
+                }
+
 
                 return (boolean) newValue;
             }
         };
 
-        trapKitPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
 
-        standardDrumKitPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
+        for (CheckBoxPreference padKitPref : padKits){
+
+                padKitPref.setOnPreferenceChangeListener(onPreferenceChangeListener);
+        }
+
 
     }
 
-    public static ArrayList<CheckBoxPreference> getPadKits() {
-        return padKits;
-    }
 }

@@ -1,9 +1,13 @@
 package com.example.nick.beatmaker;
 
+import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.CheckBoxPreference;
 import android.preference.Preference;
 import android.preference.PreferenceManager;
+
+import com.example.nick.beatmaker.activities.MainActivity;
 
 import java.util.ArrayList;
 
@@ -54,4 +58,8 @@ public class MySharedPreferences {
         SharedPreferences preferences = PreferenceManager.getDefaultSharedPreferences(context);
         return preferences.getBoolean(PrefTrapKit, false);
     }
+
+
+
+
 }

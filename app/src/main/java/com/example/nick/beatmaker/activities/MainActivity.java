@@ -56,8 +56,6 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<GridLayout> padKitLayouts;
 
-
-
     Metronome metronome;
     Button metronomeButton;
     boolean metronomeOn = false;
@@ -114,6 +112,7 @@ public class MainActivity extends AppCompatActivity {
         bpmSlider = (SeekBar) findViewById(R.id.bpmSlider);
         bpmSlider.setMax(160);
         bpmSlider.setProgress(80);
+
 
         checkPadKitPreference();
 
@@ -237,34 +236,16 @@ public class MainActivity extends AppCompatActivity {
 
     public void checkPadKitPreference(){
 
-        for(CheckBoxPreference padKit : PadKitsFragment.getPadKits()){
+        for (GridLayout padKitLayout : padKitLayouts){
 
-            if (padKit.isChecked()){
-
-                for (GridLayout padKitLayout : padKitLayouts){
-
-                    if (padKit.getKey().equals(padKitLayout.getTag())){
-                        padKitLayout.setVisibility(GridLayout.VISIBLE);
-                    }else{
-                        padKitLayout.setVisibility(GridLayout.GONE);
-                    }
-                }
-            }
+            padKitLayout.setVisibility(View.GONE);
         }
 
-        /*if (MySharedPreferences.getPrefStandardDrumKit(this) == true){
+        if (MySharedPreferences.getPrefStandardDrumKit(this) == true)
             standardDrumKitLayout.setVisibility(GridLayout.VISIBLE);
-        }else{
-            standardDrumKitLayout.setVisibility(GridLayout.GONE);
-        }
 
-        if (MySharedPreferences.getPrefTrapKit(this) == true){
+        if (MySharedPreferences.getPrefTrapKit(this) == true)
             trapKitLayout.setVisibility(GridLayout.VISIBLE);
-        }else{
-            trapKitLayout.setVisibility(GridLayout.GONE);
-        }*/
-
-
 
     }
 
