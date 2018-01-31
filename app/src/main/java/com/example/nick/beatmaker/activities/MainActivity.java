@@ -61,9 +61,9 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<GridLayout> padKitLayouts;
     ArrayList<Button> soundPadButtons;
-    static RelativeLayout metronomeContainer;
-    static GridLayout trapKitLayout;
-    static GridLayout standardDrumKitLayout;
+    RelativeLayout metronomeContainer;
+    GridLayout trapKitLayout;
+    GridLayout standardDrumKitLayout;
 
     // Requesting permission to RECORD_AUDIO
     private boolean permissionToRecordAccepted = false;
