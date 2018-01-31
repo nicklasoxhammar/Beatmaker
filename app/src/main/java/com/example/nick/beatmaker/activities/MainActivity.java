@@ -292,7 +292,7 @@ public class MainActivity extends AppCompatActivity {
 
         //Standard drum kit
         soundPadButtons.add((Button) findViewById(R.id.standardcrash));
-        //soundPadButtons.add((Button) findViewById(R.id.standardhihat));
+        soundPadButtons.add((Button) findViewById(R.id.standardhihat));
         soundPadButtons.add((Button) findViewById(R.id.standardsnare));
         soundPadButtons.add((Button) findViewById(R.id.standardkick));
 
@@ -308,20 +308,19 @@ public class MainActivity extends AppCompatActivity {
                 @Override
                 public boolean onTouch(View view, MotionEvent motionEvent) {
 
-
                     if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
 
                         playSound(view);
+                    }
 
 
+                    //These are here to make the button color change work when pressed.
+                    if(motionEvent.getAction() == MotionEvent.ACTION_BUTTON_PRESS){
                         return true;
-
                     }
-
-                    if(motionEvent.getAction() == MotionEvent.ACTION_BUTTON_RELEASE) {
-
+                    if (motionEvent.getAction() == MotionEvent.ACTION_BUTTON_RELEASE){
+                        return true;
                     }
-
 
                     return false;
                 }
@@ -331,11 +330,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
-    public void throwAway(View view){
-
-    }
-
 
 
 }

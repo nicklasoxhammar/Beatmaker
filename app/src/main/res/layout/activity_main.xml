@@ -73,7 +73,6 @@
             android:layout_rowWeight="1"
             android:background="@drawable/blue_button"
             android:soundEffectsEnabled="false"
-            android:onClick="playSound"
             android:tag="1"
              />
 
