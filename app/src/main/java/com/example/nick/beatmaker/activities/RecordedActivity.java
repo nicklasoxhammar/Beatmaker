@@ -1,5 +1,6 @@
 package com.example.nick.beatmaker.activities;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.os.FileObserver;
 import android.support.annotation.Nullable;
@@ -10,10 +11,15 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 
 
 import com.example.nick.beatmaker.R;
 import com.example.nick.beatmaker.adapters.FileViewerAdapter;
+
+import java.util.zip.Inflater;
 
 /**
  * Created by Nick on 2018-01-29.
@@ -29,8 +35,10 @@ public class RecordedActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.file_viewer);
+
+
         RecyclerView mRecyclerView = (RecyclerView) findViewById(R.id.recyclerViewRecorded);
-        mRecyclerView.setHasFixedSize(false);
+        mRecyclerView.setHasFixedSize(true);
         LinearLayoutManager llm = new LinearLayoutManager(this);
         llm.setOrientation(LinearLayoutManager.VERTICAL);
 
@@ -43,6 +51,7 @@ public class RecordedActivity extends AppCompatActivity{
 
         mFileViewerAdapter = new FileViewerAdapter(this, llm);
         mRecyclerView.setAdapter(mFileViewerAdapter);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
