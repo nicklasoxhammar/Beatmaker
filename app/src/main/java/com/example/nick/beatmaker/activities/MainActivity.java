@@ -43,20 +43,14 @@ import java.util.ArrayList;
 import static java.lang.String.valueOf;
 
 
-
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
 
     private boolean mStartRecording = true;
-    private boolean mPauseRecording = true;
 
     private Menu menu;
-
-    ArrayList<GridLayout> padKitLayouts;
-    ArrayList<Button> soundPadButtons;
 
     Metronome metronome;
     Button metronomeButton;
@@ -65,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
     TextView bpmText;
     SeekBar bpmSlider;
 
+    ArrayList<GridLayout> padKitLayouts;
+    ArrayList<Button> soundPadButtons;
     static RelativeLayout metronomeContainer;
     static GridLayout trapKitLayout;
     static GridLayout standardDrumKitLayout;
@@ -89,53 +85,25 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //Ask for permission to record audio.
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
 
+        //Set up all the stuff!
         soundPadButtons = new ArrayList<Button>();
         addSoundPads();
+        padKitLayouts = new ArrayList<GridLayout>();
+        addPadKitLayouts();
+
+        setupMetronome();
+        checkPadKitPreference();
 
         SoundPlayer soundPlayer = new SoundPlayer(getApplicationContext());
 
         makeActionOverflowMenuShown();
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        metronomeContainer = (RelativeLayout) this.findViewById(R.id.metronomeContainer);
-
-        padKitLayouts = new ArrayList<GridLayout>();
-        padKitLayouts.add(trapKitLayout = (GridLayout) this.findViewById(R.id.trapKitLayout));
-        padKitLayouts.add(standardDrumKitLayout = (GridLayout) this.findViewById(R.id.standardDrumKitLayout));
-
-        showOrHideMetronome();
-
-        metronomeButton = (Button) findViewById(R.id.metronomeButton);
-
-        bpmText = (TextView) findViewById(R.id.bpmText);
-        bpmSlider = (SeekBar) findViewById(R.id.bpmSlider);
-        bpmSlider.setMax(160);
-        bpmSlider.setProgress(80);
-
-
-        checkPadKitPreference();
-
-        bpmSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
-            @Override
-            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
-
-                updateBpm(progress);
-            }
-
-            @Override
-            public void onStartTrackingTouch(SeekBar seekBar) {
-
-            }
-
-            @Override
-            public void onStopTrackingTouch(SeekBar seekBar) {
-
-            }
-        });
 
 
     }
@@ -231,11 +199,6 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void playSound(View v){
-
-        SoundPlayer.playPadSound(Integer.parseInt(String.valueOf(v.getTag())));
-
-    }
 
     public void checkPadKitPreference() {
 
@@ -310,9 +273,9 @@ public class MainActivity extends AppCompatActivity {
 
                     if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
 
-                        playSound(view);
+                        //get the soundplayer to play the sound.
+                        SoundPlayer.playPadSound(Integer.parseInt(String.valueOf(view.getTag())));
                     }
-
 
                     //These are here to make the button color change work when pressed.
                     if(motionEvent.getAction() == MotionEvent.ACTION_BUTTON_PRESS){
@@ -328,6 +291,44 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
+
+    }
+
+    public void addPadKitLayouts(){
+
+        padKitLayouts.add(trapKitLayout = (GridLayout) this.findViewById(R.id.trapKitLayout));
+        padKitLayouts.add(standardDrumKitLayout = (GridLayout) this.findViewById(R.id.standardDrumKitLayout));
+    }
+
+    public void setupMetronome(){
+
+        metronomeContainer = (RelativeLayout) this.findViewById(R.id.metronomeContainer);
+        metronomeButton = (Button) findViewById(R.id.metronomeButton);
+
+        bpmText = (TextView) findViewById(R.id.bpmText);
+        bpmSlider = (SeekBar) findViewById(R.id.bpmSlider);
+        bpmSlider.setMax(160);
+        bpmSlider.setProgress(80);
+
+        bpmSlider.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
+            @Override
+            public void onProgressChanged(SeekBar seekBar, int progress, boolean b) {
+
+                updateBpm(progress);
+            }
+
+            @Override
+            public void onStartTrackingTouch(SeekBar seekBar) {
+
+            }
+
+            @Override
+            public void onStopTrackingTouch(SeekBar seekBar) {
+
+            }
+        });
+
+        showOrHideMetronome();
 
     }
 
