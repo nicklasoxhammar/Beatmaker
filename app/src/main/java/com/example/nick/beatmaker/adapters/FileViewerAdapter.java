@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Environment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentTransaction;
+import android.support.v4.content.FileProvider;
 import android.support.v7.widget.LinearLayoutManager;
 import android.text.format.DateUtils;
 import android.util.Log;
@@ -22,6 +23,7 @@ import android.support.v7.widget.RecyclerView;
 import com.example.nick.beatmaker.DBHelper;
 import com.example.nick.beatmaker.R;
 import com.example.nick.beatmaker.RecordingItem;
+import com.example.nick.beatmaker.activities.MainActivity;
 import com.example.nick.beatmaker.fragments.PlaybackFragment;
 import com.example.nick.beatmaker.listeners.OnDatabaseChangedListener;
 
@@ -231,7 +233,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
     public void shareFileDialog(int position) {
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_STREAM, Uri.fromFile(new File(getItem(position).getFilePath())));
+        shareIntent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(mContext, mContext.getApplicationContext().getPackageName() + "com.example.nick.beatmaker.provider", new File(getItem(position).getFilePath())));
         shareIntent.setType("audio/mp4");
         mContext.startActivity(Intent.createChooser(shareIntent, mContext.getText(R.string.send_to)));
     }

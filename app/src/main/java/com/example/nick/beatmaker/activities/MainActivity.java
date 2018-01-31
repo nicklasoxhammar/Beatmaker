@@ -46,7 +46,7 @@ import static java.lang.String.valueOf;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private static final int REQUEST_RECORD_AUDIO_PERMISSION = 200;
+    private static final int ASK_MULTIPLE_PERMISSION_REQUEST_CODE = 400;
 
     private boolean mStartRecording = true;
 
@@ -67,17 +67,21 @@ public class MainActivity extends AppCompatActivity {
 
     // Requesting permission to RECORD_AUDIO
     private boolean permissionToRecordAccepted = false;
-    private String [] permissions = {Manifest.permission.RECORD_AUDIO};
+    private boolean permissionToWriteStorageAccepted = false;
+    private String [] permissions = {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE};
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
         switch (requestCode) {
-            case REQUEST_RECORD_AUDIO_PERMISSION:
-                permissionToRecordAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+
+            case ASK_MULTIPLE_PERMISSION_REQUEST_CODE:
+                permissionToWriteStorageAccepted = grantResults[1] == PackageManager.PERMISSION_GRANTED;
+                permissionToRecordAccepted= grantResults[0] == PackageManager.PERMISSION_GRANTED;
+
                 break;
         }
-        if (!permissionToRecordAccepted) finish();
+        if (!permissionToRecordAccepted || !permissionToWriteStorageAccepted) finish();
     }
 
 
@@ -86,8 +90,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Ask for permission to record audio.
-        ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
+        //Ask for permission to record audio and write storage.
+        ActivityCompat.requestPermissions(this, permissions, ASK_MULTIPLE_PERMISSION_REQUEST_CODE);
+
 
         //Set up all the stuff!
         soundPadButtons = new ArrayList<Button>();

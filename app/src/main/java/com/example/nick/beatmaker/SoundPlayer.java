@@ -42,6 +42,15 @@ public class SoundPlayer {
             kick = sp.load(context, R.raw.trapkick, 1);
         }
 
+        else {
+
+            hihat = sp.load(context, R.raw.standardhihat, 1);
+            crash = sp.load(context, R.raw.standardcrash, 1);
+            snare = sp.load(context, R.raw.standardsnare, 1);
+            kick = sp.load(context, R.raw.standardkick, 1);
+
+        }
+
 
 
         sounds = new int[]{hihat, crash, snare, kick};
