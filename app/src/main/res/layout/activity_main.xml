@@ -62,7 +62,7 @@
 
 
         <Button
-            android:id="@+id/hihat"
+            android:id="@+id/standardhihat"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,13 +72,13 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:background="@drawable/blue_button"
-            android:onClick="playSound"
             android:soundEffectsEnabled="false"
+            android:onClick="playSound"
             android:tag="1"
              />
 
         <Button
-            android:id="@+id/crash"
+            android:id="@+id/standardcrash"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -88,13 +88,12 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:background="@drawable/green_buton"
-            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="2"
              />
 
         <Button
-            android:id="@+id/snare"
+            android:id="@+id/standardsnare"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -104,13 +103,12 @@
             android:layout_row="1"
             android:layout_rowWeight="1"
             android:background="@drawable/purple_button"
-            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="3"
             />
 
         <Button
-            android:id="@+id/kick"
+            android:id="@+id/standardkick"
             android:layout_margin="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -120,7 +118,6 @@
             android:layout_row="1"
             android:layout_rowWeight="1"
             android:background="@drawable/orange_button"
-            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="4"
              />
@@ -147,7 +144,6 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:background="@drawable/blue_button"
-            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="1"
             />
@@ -163,7 +159,6 @@
             android:layout_row="0"
             android:layout_rowWeight="1"
             android:background="@drawable/purple_button"
-            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="2"
             />
@@ -179,7 +174,6 @@
             android:layout_row="1"
             android:layout_rowWeight="1"
             android:background="@drawable/green_buton"
-            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="3"
             />
@@ -195,7 +189,6 @@
             android:layout_row="1"
             android:layout_rowWeight="1"
             android:background="@drawable/orange_button"
-            android:onClick="playSound"
             android:soundEffectsEnabled="false"
             android:tag="4"
             />

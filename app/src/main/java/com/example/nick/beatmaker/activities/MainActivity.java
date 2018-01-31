@@ -16,6 +16,7 @@ import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.WindowManager;
@@ -55,6 +56,7 @@ public class MainActivity extends AppCompatActivity {
     private Menu menu;
 
     ArrayList<GridLayout> padKitLayouts;
+    ArrayList<Button> soundPadButtons;
 
     Metronome metronome;
     Button metronomeButton;
@@ -87,9 +89,10 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
         ActivityCompat.requestPermissions(this, permissions, REQUEST_RECORD_AUDIO_PERMISSION);
+
+        soundPadButtons = new ArrayList<Button>();
+        addSoundPads();
 
         SoundPlayer soundPlayer = new SoundPlayer(getApplicationContext());
 
@@ -234,18 +237,22 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void checkPadKitPreference(){
+    public void checkPadKitPreference() {
 
-        for (GridLayout padKitLayout : padKitLayouts){
+        for (GridLayout padKitLayout : padKitLayouts) {
 
             padKitLayout.setVisibility(View.GONE);
         }
 
-        if (MySharedPreferences.getPrefStandardDrumKit(this) == true)
+        if (MySharedPreferences.getPrefStandardDrumKit(this) == true){
             standardDrumKitLayout.setVisibility(GridLayout.VISIBLE);
 
-        if (MySharedPreferences.getPrefTrapKit(this) == true)
+         }else if (MySharedPreferences.getPrefTrapKit(this) == true) {
             trapKitLayout.setVisibility(GridLayout.VISIBLE);
+
+        } else {
+            standardDrumKitLayout.setVisibility(GridLayout.VISIBLE);
+        }
 
     }
 
@@ -279,6 +286,54 @@ public class MainActivity extends AppCompatActivity {
             //allow the screen to turn off again once recording is finished
             this.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
+    }
+
+    public void addSoundPads(){
+
+        //Standard drum kit
+        soundPadButtons.add((Button) findViewById(R.id.standardcrash));
+        //soundPadButtons.add((Button) findViewById(R.id.standardhihat));
+        soundPadButtons.add((Button) findViewById(R.id.standardsnare));
+        soundPadButtons.add((Button) findViewById(R.id.standardkick));
+
+        //Trap kit
+        soundPadButtons.add((Button) findViewById(R.id.traphihat));
+        soundPadButtons.add((Button) findViewById(R.id.trapguncock));
+        soundPadButtons.add((Button) findViewById(R.id.trapkick));
+        soundPadButtons.add((Button) findViewById(R.id.trapsnare));
+
+        for (Button soundPad : soundPadButtons){
+
+            soundPad.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View view, MotionEvent motionEvent) {
+
+
+                    if(motionEvent.getAction() == MotionEvent.ACTION_DOWN){
+
+                        playSound(view);
+
+
+                        return true;
+
+                    }
+
+                    if(motionEvent.getAction() == MotionEvent.ACTION_BUTTON_RELEASE) {
+
+                    }
+
+
+                    return false;
+                }
+            });
+
+
+        }
+
+    }
+
+    public void throwAway(View view){
+
     }
 
 
