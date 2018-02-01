@@ -212,7 +212,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
         //rename a file
 
         String mFilePath = Environment.getExternalStorageDirectory().getAbsolutePath();
-        mFilePath += "/SoundRecorder/" + name;
+        mFilePath += "/BeatMaker/" + name;
         File f = new File(mFilePath);
 
         if (f.exists() && !f.isDirectory()) {
@@ -233,7 +233,7 @@ public class FileViewerAdapter extends RecyclerView.Adapter<FileViewerAdapter.Re
     public void shareFileDialog(int position) {
         Intent shareIntent = new Intent();
         shareIntent.setAction(Intent.ACTION_SEND);
-        shareIntent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(mContext, mContext.getApplicationContext().getPackageName() + "com.example.nick.beatmaker.provider", new File(getItem(position).getFilePath())));
+        shareIntent.putExtra(Intent.EXTRA_STREAM, FileProvider.getUriForFile(mContext,"com.example.nick.beatmaker.fileprovider", new File(getItem(position).getFilePath())));
         shareIntent.setType("audio/mp4");
         mContext.startActivity(Intent.createChooser(shareIntent, mContext.getText(R.string.send_to)));
     }

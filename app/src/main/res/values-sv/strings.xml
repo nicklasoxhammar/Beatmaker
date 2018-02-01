@@ -35,7 +35,7 @@
     <string name="no_saved_recordings_message">Inga sparade inspelningar</string>
     <string name="pause_recording_button">Pausa</string>
     <string name="resume_recording_button">Spela</string>
-    <string name="default_file_name">Min inspelning</string>
+    <string name="default_file_name">Min_inspelning</string>
     <string name="record_in_progress">Spelar in</string>
 
     <string name="send_to">Skicka till</string>

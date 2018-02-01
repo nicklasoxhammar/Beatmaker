@@ -4,6 +4,7 @@ import android.Manifest;
 import android.content.ClipData;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.media.AudioManager;
 import android.os.Environment;
 import android.os.SystemClock;
 import android.preference.CheckBoxPreference;
@@ -93,6 +94,8 @@ public class MainActivity extends AppCompatActivity {
         //Ask for permission to record audio and write storage.
         ActivityCompat.requestPermissions(this, permissions, ASK_MULTIPLE_PERMISSION_REQUEST_CODE);
 
+        //Makes the phone volume buttons work even when no sound is playing.
+        setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
         //Set up all the stuff!
         soundPadButtons = new ArrayList<Button>();
