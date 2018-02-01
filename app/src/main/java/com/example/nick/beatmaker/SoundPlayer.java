@@ -3,6 +3,9 @@ package com.example.nick.beatmaker;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.SoundPool;
+import android.util.Log;
+
+import static android.content.ContentValues.TAG;
 
 
 /**
@@ -16,22 +19,32 @@ public class SoundPlayer {
     static int crash;
     static int snare;
     static int kick;
+    static int tom1;
+    static int tom2;
+    static int tom3;
+    static int ride;
+    static int rimshot;
 
     static int[] sounds;
 
 
     public SoundPlayer(Context context){
 
-        //standardhihat has an int value of 1, standardcrash has value of 2, etc..
-        sp = new SoundPool(100, AudioManager.STREAM_MUSIC,0);
+        sp = new SoundPool(200, AudioManager.STREAM_MUSIC,0);
 
 
         if (MySharedPreferences.getPrefStandardDrumKit(context) == true) {
 
-            hihat = sp.load(context, R.raw.standardhihat, 1);
             crash = sp.load(context, R.raw.standardcrash, 1);
+            rimshot = sp.load(context, R.raw.standardrimshot, 1);
+            ride = sp.load(context, R.raw.standardride, 1);
+            tom1 = sp.load(context, R.raw.standardtom1, 1);
+            tom2 = sp.load(context, R.raw.standardtom2, 1);
+            tom3 = sp.load(context, R.raw.standardtom3, 1);
+            hihat = sp.load(context, R.raw.standardhihat, 1);
             snare = sp.load(context, R.raw.standardsnare, 1);
             kick = sp.load(context, R.raw.standardkick, 1);
+
         }
 
         else if (MySharedPreferences.getPrefTrapKit(context) == true){
@@ -44,8 +57,13 @@ public class SoundPlayer {
 
         else {
 
-            hihat = sp.load(context, R.raw.standardhihat, 1);
             crash = sp.load(context, R.raw.standardcrash, 1);
+            rimshot = sp.load(context, R.raw.standardride, 1);
+            ride = sp.load(context, R.raw.standardride, 1);
+            tom1 = sp.load(context, R.raw.standardkick, 1);
+            tom2 = sp.load(context, R.raw.standardkick, 1);
+            tom3 = sp.load(context, R.raw.standardkick, 1);
+            hihat = sp.load(context, R.raw.standardhihat, 1);
             snare = sp.load(context, R.raw.standardsnare, 1);
             kick = sp.load(context, R.raw.standardkick, 1);
 
@@ -53,7 +71,7 @@ public class SoundPlayer {
 
 
 
-        sounds = new int[]{hihat, crash, snare, kick};
+        sounds = new int[]{crash, rimshot, ride, tom1, tom2, tom3, hihat, snare, kick};
 
     }
 

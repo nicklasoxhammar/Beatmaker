@@ -74,7 +74,7 @@
 
 
         <Button
-            android:id="@+id/standardhihat"
+            android:id="@+id/standardcrash"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
@@ -90,7 +90,7 @@
              />
 
         <Button
-            android:id="@+id/standardcrash"
+            android:id="@+id/standardrimshot"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
@@ -106,7 +106,7 @@
              />
 
         <Button
-            android:id="@+id/standardsnare"
+            android:id="@+id/standardride"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -123,7 +123,7 @@
             />
 
         <Button
-            android:id="@+id/standardkick"
+            android:id="@+id/standardtom1"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
@@ -133,12 +133,12 @@
             android:layout_gravity="fill"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:background="@drawable/red_button"
+            android:background="@drawable/pink_button"
             android:soundEffectsEnabled="false"
             android:tag="4"
              />
         <Button
-            android:id="@+id/standardtom1"
+            android:id="@+id/standardtom2"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
@@ -148,12 +148,12 @@
             android:layout_gravity="fill"
             android:layout_row="1"
             android:layout_rowWeight="1"
-            android:background="@drawable/orange_button"
+            android:background="@drawable/red_button"
             android:soundEffectsEnabled="false"
             android:tag="5"
             />
         <Button
-            android:id="@+id/standardtom2"
+            android:id="@+id/standardtom3"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -169,7 +169,7 @@
             android:tag="6"
             />
         <Button
-            android:id="@+id/standardtom3"
+            android:id="@+id/standardhihat"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
@@ -179,12 +179,12 @@
             android:layout_gravity="fill"
             android:layout_row="2"
             android:layout_rowWeight="1"
-            android:background="@drawable/orange_button"
+            android:background="@drawable/darkblue_button"
             android:soundEffectsEnabled="false"
             android:tag="7"
             />
         <Button
-            android:id="@+id/standardride"
+            android:id="@+id/standardsnare"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_width="wrap_content"
@@ -199,7 +199,7 @@
             android:tag="8"
         />
         <Button
-            android:id="@+id/standardsomething"
+            android:id="@+id/standardkick"
             android:layout_marginTop="5dp"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
@@ -210,7 +210,7 @@
             android:layout_gravity="fill"
             android:layout_row="2"
             android:layout_rowWeight="1"
-            android:background="@drawable/orange_button"
+            android:background="@drawable/turquoise_button"
             android:soundEffectsEnabled="false"
             android:tag="9"
             />

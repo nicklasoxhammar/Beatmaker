@@ -29,12 +29,12 @@
     <!-- Yellow style gradient -->
     <color name="yellowstartcolor">#fdf78a</color>
     <color name="yellowendcolor">#ffeb12</color>
-    <!--  style gradient -->
-    <color name="yellwstartcolor">#fdf78a</color>
-    <color name="yllowendcolor">#ffeb12</color>
-    <!-- Yellow style gradient -->
-    <color name="yelwstartcolor">#fdf78a</color>
-    <color name="yeowendcolor">#ffeb12</color>
+    <!--  Turquoise style gradient -->
+    <color name="turquoisestartcolor">#8fffc0</color>
+    <color name="turquoiseendcolor">#12ffac</color>
+    <!-- Darkble style gradient -->
+    <color name="darkbluestartcolor">#8c8afd</color>
+    <color name="darkblueendcolor">#1226ff</color>
 
 
 

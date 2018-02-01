@@ -267,6 +267,11 @@ public class MainActivity extends AppCompatActivity {
         soundPadButtons.add((Button) findViewById(R.id.standardhihat));
         soundPadButtons.add((Button) findViewById(R.id.standardsnare));
         soundPadButtons.add((Button) findViewById(R.id.standardkick));
+        soundPadButtons.add((Button) findViewById(R.id.standardride));
+        soundPadButtons.add((Button) findViewById(R.id.standardtom1));
+        soundPadButtons.add((Button) findViewById(R.id.standardtom2));
+        soundPadButtons.add((Button) findViewById(R.id.standardtom3));
+        soundPadButtons.add((Button) findViewById(R.id.standardrimshot));
 
         //Trap kit
         soundPadButtons.add((Button) findViewById(R.id.traphihat));
