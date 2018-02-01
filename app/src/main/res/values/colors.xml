@@ -5,6 +5,9 @@
     <color name="colorAccent">#27b390</color>
     <color name="pink">#f959e6</color>
 
+
+
+    <!-- Sound pad button colors -->
     <!-- blue style gradient -->
     <color name="bluestartcolor">#47f9fe</color>
     <color name="blueendcolor">#1295fd</color>
@@ -19,7 +22,21 @@
     <color name="purpleendcolor">#c425ec</color>
     <!-- Green style gradient -->
     <color name="greenstartcolor">#b4fa51</color>
-    <color name="greenndcolor">#78cb29</color>
+    <color name="greenendcolor">#78cb29</color>
+    <!-- Red style gradient -->
+    <color name="redstartcolor">#ff5653</color>
+    <color name="redendcolor">#ea1e25</color>
+    <!-- Yellow style gradient -->
+    <color name="yellowstartcolor">#fdf78a</color>
+    <color name="yellowendcolor">#ffeb12</color>
+    <!--  style gradient -->
+    <color name="yellwstartcolor">#fdf78a</color>
+    <color name="yllowendcolor">#ffeb12</color>
+    <!-- Yellow style gradient -->
+    <color name="yelwstartcolor">#fdf78a</color>
+    <color name="yeowendcolor">#ffeb12</color>
+
+
 
     <!-- Transparent color -->
     <color name="transparent">#00000000</color>
@@ -27,4 +44,7 @@
     <!-- Metronomebutton colors -->
     <color name="metronomestart">#37ff00</color>
     <color name="metronomestop">#ea1e25</color>
+
+
+
 </resources>
