@@ -57,7 +57,7 @@ public class SoundPlayer {
             tom3 = sp.load(context, R.raw.traptom3, 1);
             hihat = sp.load(context, R.raw.traphihat, 1);
             snare = sp.load(context, R.raw.trapsnare, 1);
-            kick = sp.load(context, R.raw.trapkick, 1);
+            kick = sp.load(context, R.raw.trapkick2, 1);
         }
 
         else {
