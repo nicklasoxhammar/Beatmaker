@@ -57,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     Button metronomeButton;
     boolean metronomeOn = false;
 
-    TextView bpmText;
+    //TextView bpmText;
     SeekBar bpmSlider;
 
     ArrayList<GridLayout> padKitLayouts;
@@ -158,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void updateBpm(int progress){
 
-        bpmText.setText("BPM: " + valueOf(progress + 40));
+        metronomeButton.setText(valueOf(progress + 40));
 
     }
 
@@ -166,8 +166,9 @@ public class MainActivity extends AppCompatActivity {
 
         if (!metronomeOn) {
 
+            metronomeButton.setBackgroundResource(R.drawable.metronome_stop_button);
+
             metronomeOn = true;
-            metronomeButton.setText("Stop");
             bpmSlider.setEnabled(false);
 
             metronome = new Metronome((double) bpmSlider.getProgress() + 40);
@@ -176,7 +177,7 @@ public class MainActivity extends AppCompatActivity {
         }else{
 
             metronomeOn = false;
-            metronomeButton.setText("Start");
+            metronomeButton.setBackgroundResource(R.drawable.metronome_start_button);
             bpmSlider.setEnabled(true);
 
             metronome.stop();
@@ -313,7 +314,7 @@ public class MainActivity extends AppCompatActivity {
         metronomeContainer = (RelativeLayout) this.findViewById(R.id.metronomeContainer);
         metronomeButton = (Button) findViewById(R.id.metronomeButton);
 
-        bpmText = (TextView) findViewById(R.id.bpmText);
+        //bpmText = (TextView) findViewById(R.id.bpmText);
         bpmSlider = (SeekBar) findViewById(R.id.bpmSlider);
         bpmSlider.setMax(160);
         bpmSlider.setProgress(80);

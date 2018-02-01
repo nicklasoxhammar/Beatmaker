@@ -23,4 +23,8 @@
 
     <!-- Transparent color -->
     <color name="transparent">#00000000</color>
+
+    <!-- Metronomebutton colors -->
+    <color name="metronomestart">#37ff00</color>
+    <color name="metronomestop">#ea1e25</color>
 </resources>
