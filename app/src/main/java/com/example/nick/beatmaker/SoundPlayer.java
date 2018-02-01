@@ -49,8 +49,13 @@ public class SoundPlayer {
 
         else if (MySharedPreferences.getPrefTrapKit(context) == true){
 
+            crash = sp.load(context, R.raw.trapgunshot, 1);
+            rimshot = sp.load(context, R.raw.trapambience, 1);
+            ride = sp.load(context, R.raw.trapguncock, 1);
+            tom1 = sp.load(context, R.raw.traptom1, 1);
+            tom2 = sp.load(context, R.raw.traptom2, 1);
+            tom3 = sp.load(context, R.raw.traptom3, 1);
             hihat = sp.load(context, R.raw.traphihat, 1);
-            crash = sp.load(context, R.raw.trapguncock, 1);
             snare = sp.load(context, R.raw.trapsnare, 1);
             kick = sp.load(context, R.raw.trapkick, 1);
         }
