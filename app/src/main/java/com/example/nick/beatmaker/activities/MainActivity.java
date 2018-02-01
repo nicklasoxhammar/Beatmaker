@@ -47,9 +47,9 @@ import static java.lang.String.valueOf;
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
-    private static final int ASK_MULTIPLE_PERMISSION_REQUEST_CODE = 400;
+    //private static final int ASK_MULTIPLE_PERMISSION_REQUEST_CODE = 400;
 
-    private boolean mStartRecording = true;
+    //private boolean mStartRecording = true;
 
     private Menu menu;
 
@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
     GridLayout trapKitLayout;
     GridLayout standardDrumKitLayout;
 
-    // Requesting permission to RECORD_AUDIO
+    /*// Requesting permission to RECORD_AUDIO
     private boolean permissionToRecordAccepted = false;
     private boolean permissionToWriteStorageAccepted = false;
     private String [] permissions = {Manifest.permission.RECORD_AUDIO, Manifest.permission.WRITE_EXTERNAL_STORAGE};
@@ -83,7 +83,7 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         if (!permissionToRecordAccepted || !permissionToWriteStorageAccepted) finish();
-    }
+    }*/
 
 
     @Override
@@ -91,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Ask for permission to record audio and write storage.
-        ActivityCompat.requestPermissions(this, permissions, ASK_MULTIPLE_PERMISSION_REQUEST_CODE);
+        /*//Ask for permission to record audio and write storage.
+        ActivityCompat.requestPermissions(this, permissions, ASK_MULTIPLE_PERMISSION_REQUEST_CODE);*/
 
         //Makes the phone volume buttons work even when no sound is playing.
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -137,13 +137,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(e);
                 return true;
 
-            case R.id.action_recordings:
+            /*case R.id.action_recordings:
                 Intent u = new Intent(this, RecordedActivity.class);
                 startActivity(u);
                 return true;
 
             case R.id.action_record:
-                onRecord(mStartRecording);
+                onRecord(mStartRecording);*/
 
 
             default:
@@ -227,7 +227,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void onRecord(boolean start){
+    /*private void onRecord(boolean start){
 
         Intent intent = new Intent(this, RecordingService.class);
 
@@ -257,7 +257,7 @@ public class MainActivity extends AppCompatActivity {
             //allow the screen to turn off again once recording is finished
             this.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
         }
-    }
+    }*/
 
     public void addSoundPads(){
 
@@ -338,6 +338,16 @@ public class MainActivity extends AppCompatActivity {
 
         showOrHideMetronome();
 
+    }
+
+    @Override
+    public void onDestroy() {
+
+        if (metronomeOn){
+            metronome.stop();
+        }
+
+        super.onDestroy();
     }
 
 
