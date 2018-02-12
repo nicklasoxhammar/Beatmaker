@@ -30,17 +30,6 @@
 
             android:textColor="@android:color/background_light" />
 
-        <!--<TextView
-            android:id="@+id/bpmText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignBaseline="@+id/metronomeButton"
-            android:layout_alignBottom="@+id/metronomeButton"
-            android:layout_centerHorizontal="true"
-            android:text="BPM: 120"
-            android:textColor="@android:color/background_light"
-            android:textSize="18sp"
-            android:textStyle="bold|italic" />-->
 
         <SeekBar
             android:id="@+id/bpmSlider"
@@ -100,7 +89,7 @@
             android:layout_gravity="fill"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:background="@drawable/green_buton"
+            android:background="@drawable/green_button"
             android:soundEffectsEnabled="false"
             android:tag="2"
              />
@@ -255,7 +244,7 @@
             android:layout_gravity="fill"
             android:layout_row="0"
             android:layout_rowWeight="1"
-            android:background="@drawable/green_buton"
+            android:background="@drawable/green_button"
             android:soundEffectsEnabled="false"
             android:tag="2"
             />

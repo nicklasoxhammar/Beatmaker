@@ -33,15 +33,7 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.nick.beatmaker.activities.MainActivity" />
         </activity>
-        <activity android:name=".activities.RecordedActivity"
-            android:label="@string/Recorded"
-            android:parentActivityName=".activities.MainActivity">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.example.nick.beatmaker.activities.MainActivity" />
-        </activity>
 
-        <service android:name=".RecordingService" />
         <provider
             android:name="android.support.v4.content.FileProvider"
             android:authorities="com.example.nick.beatmaker.fileprovider"
