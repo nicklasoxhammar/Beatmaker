@@ -3,9 +3,7 @@ package com.example.nick.beatmaker;
 import android.content.Context;
 import android.media.AudioManager;
 import android.media.SoundPool;
-import android.util.Log;
 
-import static android.content.ContentValues.TAG;
 
 
 /**
@@ -30,7 +28,7 @@ public class SoundPlayer {
 
     public SoundPlayer(Context context){
 
-        sp = new SoundPool(200, AudioManager.STREAM_MUSIC,0);
+        sp = new SoundPool(5, AudioManager.STREAM_MUSIC,0);
 
 
         if (MySharedPreferences.getPrefStandardDrumKit(context) == true) {
