@@ -61,11 +61,11 @@ public class SoundPlayer {
         else {
 
             crash = sp.load(context, R.raw.standardcrash, 1);
-            rimshot = sp.load(context, R.raw.standardride, 1);
+            rimshot = sp.load(context, R.raw.standardrimshot, 1);
             ride = sp.load(context, R.raw.standardride, 1);
-            tom1 = sp.load(context, R.raw.standardkick, 1);
-            tom2 = sp.load(context, R.raw.standardkick, 1);
-            tom3 = sp.load(context, R.raw.standardkick, 1);
+            tom1 = sp.load(context, R.raw.standardtom1, 1);
+            tom2 = sp.load(context, R.raw.standardtom2, 1);
+            tom3 = sp.load(context, R.raw.standardtom3, 1);
             hihat = sp.load(context, R.raw.standardhihat, 1);
             snare = sp.load(context, R.raw.standardsnare, 1);
             kick = sp.load(context, R.raw.standardkick, 1);

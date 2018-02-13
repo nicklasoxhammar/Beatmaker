@@ -30,13 +30,11 @@
     <color name="yellowstartcolor">#fdf78a</color>
     <color name="yellowendcolor">#ffeb12</color>
     <!--  Turquoise style gradient -->
-    <color name="turquoisestartcolor">#8fffc0</color>
+    <color name="turquoisestartcolor">#d1ffe5</color>
     <color name="turquoiseendcolor">#12ffac</color>
     <!-- Darkble style gradient -->
     <color name="darkbluestartcolor">#8c8afd</color>
     <color name="darkblueendcolor">#1226ff</color>
-
-
 
     <!-- Transparent color -->
     <color name="transparent">#00000000</color>
