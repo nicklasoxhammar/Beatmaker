@@ -52,8 +52,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //PreferenceManager.setDefaultValues(this, R.xml.padkits, false);
-
         //Makes the phone volume buttons work even when no sound is playing.
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
 
