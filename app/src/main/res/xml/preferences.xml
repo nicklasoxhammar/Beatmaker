@@ -3,7 +3,6 @@
     <CheckBoxPreference
         android:key="metronomeKey"
         android:title="@string/showMetronome"
-        
         />
 
 

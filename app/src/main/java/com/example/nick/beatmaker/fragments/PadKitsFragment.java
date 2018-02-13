@@ -42,7 +42,19 @@ public class PadKitsFragment extends PreferenceFragment {
             public boolean onPreferenceChange(Preference preference, Object newValue) {
                 String key = preference.getKey();
 
-                if (preference == trapKitPref) {
+                if (preference == standardDrumKitPref) {
+                    MySharedPreferences.setPrefStandardDrumKit(getActivity(), true);
+
+                    MySharedPreferences.setPrefTrapKit(getActivity(), false);
+                    //Reset other items
+                    for(CheckBoxPreference padKit : padKits) {
+                        if (padKit != standardDrumKitPref)
+                            padKit.setChecked(false);
+                    }
+
+                }
+
+                else  if (preference == trapKitPref) {
                     MySharedPreferences.setPrefTrapKit(getActivity(), true);
 
                     MySharedPreferences.setPrefStandardDrumKit(getActivity(), false);
@@ -51,17 +63,6 @@ public class PadKitsFragment extends PreferenceFragment {
                         if (padKit != trapKitPref) {
                             padKit.setChecked(false);
                         }
-                    }
-                }
-
-                else if (preference == standardDrumKitPref) {
-                    MySharedPreferences.setPrefStandardDrumKit(getActivity(), true);
-
-                    MySharedPreferences.setPrefTrapKit(getActivity(), false);
-                    //Reset other items
-                    for(CheckBoxPreference padKit : padKits) {
-                        if (padKit != standardDrumKitPref)
-                            padKit.setChecked(false);
                     }
                 }
 

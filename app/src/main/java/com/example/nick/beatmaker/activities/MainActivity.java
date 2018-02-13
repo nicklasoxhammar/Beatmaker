@@ -2,6 +2,7 @@ package com.example.nick.beatmaker.activities;
 
 import android.content.Intent;
 import android.media.AudioManager;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -50,6 +51,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //PreferenceManager.setDefaultValues(this, R.xml.padkits, false);
 
         //Makes the phone volume buttons work even when no sound is playing.
         setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -165,6 +168,10 @@ public class MainActivity extends AppCompatActivity {
 
         if (MySharedPreferences.getPrefStandardDrumKit(this) == true){
             standardDrumKitLayout.setVisibility(GridLayout.VISIBLE);
+            Log.d(TAG, "checkPadKitPreference: WHHHHY THIIIS NOOOOOOOOO WORK?!?!?!??!");
+            Log.d(TAG, "checkPadKitPreference: WHHHHY THIIIS NOOOOOOOOrawesfrawsfO WORK?!?!?!??!");
+            Log.d(TAG, "checkPadKitPreference: WHHHHY THIIIS NOOOOOOOOO 1213r2WORK?!?!?!??!");
+            Log.d(TAG, "checkPadKitPreference: WHHHHY THIIIS NOOOO111OOO12131OO WORK?!?!?!??!");
 
          }else if (MySharedPreferences.getPrefTrapKit(this) == true) {
             trapKitLayout.setVisibility(GridLayout.VISIBLE);
