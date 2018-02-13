@@ -1,4 +1,4 @@
-package com.example.nick.beatmaker;
+package com.oxhammar.nick.beatmaker;
 
 import org.junit.Test;
 

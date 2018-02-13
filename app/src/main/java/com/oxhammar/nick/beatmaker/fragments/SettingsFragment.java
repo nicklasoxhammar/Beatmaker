@@ -1,4 +1,4 @@
-package com.example.nick.beatmaker.fragments;
+package com.oxhammar.nick.beatmaker.fragments;
 
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
@@ -6,8 +6,8 @@ import android.preference.Preference;
 import android.preference.PreferenceFragment;
 import android.support.annotation.Nullable;
 
-import com.example.nick.beatmaker.R;
-import com.example.nick.beatmaker.MySharedPreferences;
+import com.oxhammar.nick.beatmaker.R;
+import com.oxhammar.nick.beatmaker.MySharedPreferences;
 
 
 /**

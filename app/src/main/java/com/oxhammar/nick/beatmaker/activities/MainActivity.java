@@ -1,8 +1,7 @@
-package com.example.nick.beatmaker.activities;
+package com.oxhammar.nick.beatmaker.activities;
 
 import android.content.Intent;
 import android.media.AudioManager;
-import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -17,10 +16,10 @@ import android.widget.GridLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 
-import com.example.nick.beatmaker.Metronome;
-import com.example.nick.beatmaker.R;
-import com.example.nick.beatmaker.SoundPlayer;
-import com.example.nick.beatmaker.MySharedPreferences;
+import com.oxhammar.nick.beatmaker.Metronome;
+import com.oxhammar.nick.beatmaker.R;
+import com.oxhammar.nick.beatmaker.SoundPlayer;
+import com.oxhammar.nick.beatmaker.MySharedPreferences;
 
 import java.lang.reflect.Field;
 import java.util.ArrayList;

@@ -1,16 +1,8 @@
-package com.example.nick.beatmaker;
+package com.oxhammar.nick.beatmaker;
 
-import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.content.res.Resources;
-import android.preference.CheckBoxPreference;
-import android.preference.Preference;
 import android.preference.PreferenceManager;
-
-import com.example.nick.beatmaker.activities.MainActivity;
-
-import java.util.ArrayList;
 
 /**
  * Created by Nick on 2018-01-24.
